@@ -1,0 +1,24 @@
+/* .welcome {
+    display: flex;
+    padding-bottom: 2000px;
+} */
+
+.each-post {
+  background-color: white;
+  color: black;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px black
+
+}
+
+.search-bar{
+  display: flex;
+  height:5px;
+  width: 300px;
+  padding: 13px;
+  border-radius: 11px;
+  background-color: #829ec6;
+  text-align: left;
+}

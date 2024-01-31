@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Post
+from app.models import Post, db
 from app.forms import PostForm
 from .aws import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
@@ -39,7 +39,7 @@ def get_all_posts():
 def create_posts():
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print( "DOES IT PRINT?")
+
     if form.validate_on_submit():
         data = form.data
 
@@ -49,7 +49,7 @@ def create_posts():
             image_upload = upload_file_to_s3(image)
 
             if 'url' not in image_upload:
-                return upload, 400
+                return image_upload, 400
 
         new_post = Post(
             user_id=current_user.get_id(),
@@ -91,7 +91,7 @@ def update_posts(id):
             image_upload = upload_file_to_s3(image)
 
             if 'url' not in image_upload:
-                return upload, 400
+                return image_upload, 400
 
         post.image = image_upload.url if image_upload else post.image
         post.title=data["title"],

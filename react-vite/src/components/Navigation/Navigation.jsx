@@ -2,7 +2,7 @@
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { useNavigate } from "react-router-dom";
-import logo from "../../../public/wumblr-logo.png"
+import logo from "../../../public/wumblr-high-resolution-logo-white-transparent.png"
 
 function Navigation() {
   const navigate = useNavigate();

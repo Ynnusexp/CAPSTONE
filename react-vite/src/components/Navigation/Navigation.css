@@ -3,12 +3,20 @@
 }
 
 .profile-button {
-  display: flex ;
-  padding-left:1400px;
+  display: flex;
+  padding-left:250px;
+  color: red
+
+}
+
+.logo {
+  display: flex;
+  padding-left: 350px;
+  margin-top: 30px;
 
 }
 
 .wumblr-logo {
-  height: 70px;
-  width: 150px
+  height: 20px;
+  width: 100px
 }
