@@ -6,9 +6,9 @@ from .aws import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
 
 
-post_routes = Blueprint('posts', __name__ , url_prefix="/api/posts")
+post_routes = Blueprint('posts', __name__ , url_prefix="/api")
 
-def validation_errors_to_error_messages(validation_errors):
+def validation_errors(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
     """
@@ -27,7 +27,8 @@ def user_owns(record):
 @post_routes.route('/all')
 def get_all_posts():
 
-    posts= Post.query.order_by(desc(Post.date)).all()
+    # posts= Post.query.order_by(desc(Post.date)).all()
+    posts= Post.query.order_by((Post.date.desc())).all()
 
     # return [post.to_dict() for post in posts]
     return {post.id: post.to_dict() for post in posts}
@@ -38,7 +39,7 @@ def get_all_posts():
 def create_posts():
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print( "DOES IT PRINT?")
     if form.validate_on_submit():
         data = form.data
 
@@ -63,7 +64,7 @@ def create_posts():
 
         return { "message": "Post is Successful!"}, 200
 
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    return {'errors': validation_errors(form.errors)}, 400
 
 @post_routes.route('/<int:id>' , methods=["PUT"])
 @login_required
@@ -100,7 +101,7 @@ def update_posts(id):
         db.session.commit()
 
         return {"message": "You have updated successfully!"}
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    return {'errors': validation_errors(form.errors)}, 400
 
 @post_routes.route('/<int:id>' , methods=["DELETE"])
 @login_required

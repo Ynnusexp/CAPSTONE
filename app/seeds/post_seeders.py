@@ -1,4 +1,4 @@
-from app.models import Post, db
+from app.models import Post, db, environment, SCHEMA
 from faker import Faker
 from datetime import datetime
 from random import choice

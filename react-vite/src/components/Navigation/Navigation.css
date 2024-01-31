@@ -1,3 +1,14 @@
 .profile-dropdown {
   position: absolute;
 }
+
+.profile-button {
+  display: flex ;
+  padding-left:1400px;
+
+}
+
+.wumblr-logo {
+  height: 70px;
+  width: 150px
+}
