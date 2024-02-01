@@ -9,10 +9,10 @@ fake = Faker()
 def seed_comments():
     for _ in range(101):
 
-        comment = Comments(
+        comment = Comment(
             user_id=choice(range(1,11)),
+            post_id=choice(range(1,101)),
             description=fake.paragraph(),
-            date=datetime.now()
         )
 
         db.session.add(comment)

@@ -1,23 +1,13 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector  } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { thunkCreateComment, thunkGetAllComments } from "../../redux/post";
 import { useModal } from "../../context/Modal";
 
-const CreateComment = (commentId) => {
+const CreateComment = () => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const [description, setDescription] = useState("");
 
-  const commentFilter = useSelector((state) => Object.values(state.comments));
-
-  const updatingComment = commentFilter.filter((comment) => comment.id === commentId.commentId);
-
-  useEffect(() => {
-
-    if (updatingComment) {
-        setDescription(updatingComment[0].description);
-    }
-}, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +26,7 @@ const CreateComment = (commentId) => {
 
   return (
     <>
-      <div className="create-comment">
+      <div className="create-post">
         <form onSubmit={handleSubmit} className="create-form">
 
           <label className="description-label">

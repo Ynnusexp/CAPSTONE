@@ -35,7 +35,7 @@ const updatePost = (post) => {
 
 const deletePost = (postId) => {
     return {
-        DELETE_POST,
+        type: DELETE_POST,
         postId
     }
 }
@@ -43,40 +43,41 @@ const deletePost = (postId) => {
 // GET ALL POSTS
 export const thunkGetAllPosts = () => async (dispatch) => {
     const response = await fetch("/api/posts/all");
-    if(response.ok) {
+    if (response.ok) {
         const posts = await response.json();
         dispatch(getAllPosts(posts));
         return posts;
     } else {
-        return {errors: "Could not get all posts!"}
+        return { errors: "Could not get all posts!" }
     }
 }
 
 //GET ONE POST
 export const thunkGetOnePost = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}`)
-    if(response.ok) {
+    if (response.ok) {
         const post = await response.json();
         dispatch(getOnePost(post));
         return post;
     } else {
-        return {errors: "Could not get post!"}
+        return { errors: "Could not get post!" }
     }
 }
 
 //CREATE A POST
 export const thunkCreatePost = (formData) => async (dispatch) => {
     const response = await fetch("/api/posts/new", {
-        method:"POST",
+        method: "POST",
         body: formData
     });
 
-    if(response.ok) {
+    console.log("RESPONESE", response)
+    if (response.ok) {
         const newPost = await response.json();
         dispatch(createPost(newPost));
         return newPost;
     } else {
-        return {errors: "Error occured while creating post!"}
+        return { errors: "Error occured while creating post!" }
     }
 }
 
@@ -87,24 +88,24 @@ export const thunkUpdatePost = (postId, post) => async (dispatch) => {
         body: post
     });
 
-    if(response.ok) {
+    if (response.ok) {
         const updatedPost = await response.json();
         dispatch(updatePost(updatedPost));
         return updatedPost;
     } else {
-        return {errors: "Error occured while updating post!"}
+        return { errors: "Error occured while updating post!" }
     }
 }
 
 //DELETE A POST
 export const thunkDeletePost = (postId) => async (dispatch) => {
-    const response = await fetch(`/api/products/${postId}`, {
+    const response = await fetch(`/api/posts/${postId}`, {
         method: "DELETE",
     });
-    if(response.ok) {
+    if (response.ok) {
         dispatch(deletePost(postId));
     } else {
-        return {errors: "Error occured while  deletign post!"}
+        return { errors: "Error occured while deleting post!" }
     }
 };
 
@@ -115,11 +116,19 @@ const postReducers = (state = {}, action) => {
         case GET_ONE_POST:
             return { ...action.post };
         case CREATE_POST:
-            return {};
+            return { ...state, posts: [...(state.posts || []), action.post] };
         case UPDATE_POST:
-            return {};
+            return {
+                ...state,
+                posts: (state.posts || []).map((post) =>
+                    post.id === action.post.id ? action.post : post
+                ),
+            };
         case DELETE_POST:
-            return {};
+            return {
+                ...state,
+                posts: (state.posts || []).filter((post) => post.id !== action.postId),
+            };
         default:
             return state
     }

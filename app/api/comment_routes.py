@@ -30,10 +30,9 @@ def user_owns(record):
 @comment_routes.route('/all')
 def get_all_posts():
 
-    # posts= Post.query.order_by(desc(Post.date)).all()
-    comments= Comment.query.order_by((Comment.date.desc())).all()
 
-    # return [post.to_dict() for post in posts]
+    comments= Comment.query.order_by((Comment.date.desc())).all()
+    
     return {comment.id: comment.to_dict() for comment in comments}
 
 @comment_routes.route('/new' , methods=["POST"])
@@ -82,7 +81,7 @@ def update_posts(id):
         return {"message": "You have updated successfully!"}
     return {'errors': validation_errors(form.errors)}, 400
 
-@post_routes.route('/<int:id>' , methods=["DELETE"])
+@comment_routes.route('/<int:id>' , methods=["DELETE"])
 # @login_required
 
 def delete_posts(id):

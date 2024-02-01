@@ -6,7 +6,7 @@ from .aws import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 
 
 
-post_routes = Blueprint('posts', __name__ , url_prefix="/api")
+post_routes = Blueprint('posts', __name__)
 
 def validation_errors(validation_errors):
     """
@@ -27,10 +27,8 @@ def user_owns(record):
 @post_routes.route('/all')
 def get_all_posts():
 
-    # posts= Post.query.order_by(desc(Post.date)).all()
     posts= Post.query.order_by((Post.date.desc())).all()
 
-    # return [post.to_dict() for post in posts]
     return {post.id: post.to_dict() for post in posts}
 
 @post_routes.route('/new' , methods=["POST"])
@@ -40,29 +38,37 @@ def create_posts():
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+
     if form.validate_on_submit():
+
         data = form.data
 
         image = data['image']
+
+        image_upload = {'url': None}
+
         if image:
+
             image.filename = get_unique_filename(image.filename)
             image_upload = upload_file_to_s3(image)
 
-            if 'url' not in image_upload:
+            if not image_upload.url:
                 return image_upload, 400
+            else:
+                image_upload = image_upload["url"]
+
 
         new_post = Post(
-            user_id=current_user.get_id(),
-            title=data["title"],
-            description=data["description"],
-            image = image_upload.url if image_upload else None,
-            date=data["date"]
+            title= form.data["title"],
+            description=form.data["description"],
+            image=image_upload,
+            user_id = current_user.get_id()
         )
 
         db.session.add(new_post)
         db.session.commit()
 
-        return { "message": "Post is Successful!"}, 200
+        return new_post.to_dict()
 
     return {'errors': validation_errors(form.errors)}, 400
 
