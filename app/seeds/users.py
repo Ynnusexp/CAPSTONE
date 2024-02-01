@@ -18,7 +18,7 @@ def seed_users():
 
     for _ in range(10):
         user = User(
-           username=fake.name(),
+           username=fake.user_name(),
            email=fake.email(),
            password= "password"
         )

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { thunkCreateComment, thunkGetAllComments } from "../../redux/post";
+import { thunkCreateComment, thunkGetAllComments } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 
 const CreateComment = () => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const [description, setDescription] = useState("");
+  const [errors, setErrors] = useState([]);
+
 
 
   const handleSubmit = async (e) => {
@@ -16,10 +18,14 @@ const CreateComment = () => {
       const formData = new FormData();
       formData.append("description", description);
 
+      try {
         await dispatch(thunkCreateComment(formData));
         await dispatch(thunkGetAllComments());
 
-
+      } catch (error) {
+        console.error("There was a error updating your comment!", error);
+        setErrors(["There was a error updating your comment!"]);
+      }
     }
     closeModal();
   };

@@ -1,37 +1,34 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {thunkGetOneComment} from "../../redux/comment"
-
-
-
+import { thunkGetOneComment } from "../../redux/comment";
 
 const CommentSection = () => {
     const dispatch = useDispatch();
+    const { postId } = useParams();
+    const comments = useSelector((state) => Object.values(state.comments));
 
-    const allComments = useSelector((state) => state?.comments)
-
-    const { postId } = useParams;
-
-
-
-    useEffect(()=> {
-        const fetch = async () => {
-            await dispatch(thunkGetOneComment(postId))
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(thunkGetOneComment(postId));
         };
-        fetch();
+
+        fetchData();
     }, [dispatch, postId]);
 
-    if(!allComments) return null
-    
-    const filteredComments = Object.values(allComments)
+    if (!comments) return null;
+
+    console.log("COMMENTS", comments);
+
     return (
         <>
-        <p> DESCRIPTION: {filteredComments?.description} </p>
+            {comments.map((comment) => (
+                <div key={comment.id} className='comment'>
+                    {comment.description}
+                </div>
+            ))}
         </>
+    );
+};
 
-
-    )
-}
-
-export default CommentSection
+export default CommentSection;

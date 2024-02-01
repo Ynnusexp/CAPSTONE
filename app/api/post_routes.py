@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Post, db
 from app.forms import PostForm
 from .aws import get_unique_filename, upload_file_to_s3, remove_file_from_s3
+from datetime import datetime
 
 
 
@@ -45,25 +46,32 @@ def create_posts():
 
         image = data['image']
 
-        image_upload = {'url': None}
+        image_upload = None
 
         if image:
 
             image.filename = get_unique_filename(image.filename)
             image_upload = upload_file_to_s3(image)
 
-            if not image_upload.url:
+            if not image_upload["url"]:
                 return image_upload, 400
             else:
                 image_upload = image_upload["url"]
 
+        if image_upload:
 
-        new_post = Post(
-            title= form.data["title"],
-            description=form.data["description"],
-            image=image_upload,
-            user_id = current_user.get_id()
-        )
+            new_post = Post(
+                title= form.data["title"],
+                description=form.data["description"],
+                image=image_upload,
+                user_id = current_user.get_id()
+            )
+        else:
+            new_post = Post(
+                title= form.data["title"],
+                description=form.data["description"],
+                user_id = current_user.get_id()
+            )
 
         db.session.add(new_post)
         db.session.commit()
@@ -71,6 +79,14 @@ def create_posts():
         return new_post.to_dict()
 
     return {'errors': validation_errors(form.errors)}, 400
+
+@post_routes.route('/<int:id>', methods=["GET"])
+def get_one_post(id):
+    post = Post.query.get(id)
+    if not post:
+        return {"message": "Post does not exist!"}, 404
+
+    return post.to_dict()
 
 @post_routes.route('/<int:id>' , methods=["PUT"])
 @login_required
@@ -96,13 +112,13 @@ def update_posts(id):
             image.filename = get_unique_filename(image.filename)
             image_upload = upload_file_to_s3(image)
 
-            if 'url' not in image_upload:
+            if not image_upload["url"]:
                 return image_upload, 400
 
-        post.image = image_upload.url if image_upload else post.image
-        post.title=data["title"],
+        post.image = image_upload["url"] if image_upload else post.image
+        post.title=data["title"]
         post.description=data["description"]
-        post.date=data["date"]
+        post.date=datetime.now()
 
         db.session.commit()
 

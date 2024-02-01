@@ -6,7 +6,7 @@ import './DeletePost.css'
 const DeletePost = (postId) => {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
-   
+
     const deletePost = async (e) => {
         e.preventDefault()
         await dispatch(thunkDeletePost(postId.postId))
@@ -16,7 +16,7 @@ const DeletePost = (postId) => {
     return (
         <div className='delete-PostModal'>
             <h1 className='delete-post'>Delete This Post?</h1>
-            <div className='postDelConfirm'>
+            <div className='post-DeleteConfirm'>
                 Are you sure? This cannot be undone.
             </div>
             <button onClick={deletePost} className="delete">Delete</button>

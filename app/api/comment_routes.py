@@ -32,11 +32,11 @@ def get_all_posts():
 
 
     comments= Comment.query.order_by((Comment.date.desc())).all()
-    
+
     return {comment.id: comment.to_dict() for comment in comments}
 
 @comment_routes.route('/new' , methods=["POST"])
-# @login_required
+@login_required
 
 def create_comments():
     form = CommentForm()
@@ -56,8 +56,16 @@ def create_comments():
 
     return {'errors': validation_errors(form.errors)}, 400
 
+
+@comment_routes.route('/<int:id>', methods=["GET"])
+def post_comments(id):
+    comments = Comment.query.filter_by(post_id=id).all()
+    comment_data = [comment.to_dict() for comment in comments]
+
+    return jsonify(comment_data)
+
 @comment_routes.route('/<int:id>' , methods=["PUT"])
-# @login_required
+@login_required
 
 def update_posts(id):
     comment = Comment.query.get(id)

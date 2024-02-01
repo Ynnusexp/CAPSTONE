@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector  } from "react-redux";
-import { thunkCreateComment, thunkGetAllComments } from "../../redux/post";
+import { thunkUpdateComment, thunkGetAllComments } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 
-const CreateComment = (commentId) => {
+const UpdateComment = (commentId) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const [description, setDescription] = useState("");
@@ -26,7 +26,7 @@ const CreateComment = (commentId) => {
       const formData = new FormData();
       formData.append("description", description);
 
-        await dispatch(thunkCreateComment(formData));
+        await dispatch(thunkUpdateComment(formData));
         await dispatch(thunkGetAllComments());
 
 
@@ -53,12 +53,13 @@ const CreateComment = (commentId) => {
             type="submit"
             disabled={description.length === 0}
           >
-            Post comment
+            Update
           </button>
+          <button onClick={closeModal} className="cancel">Cancel</button>
         </form>
       </div>
     </>
   );
 };
 
-export default CreateComment;
+export default UpdateComment;

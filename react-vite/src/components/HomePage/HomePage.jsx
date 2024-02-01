@@ -83,7 +83,7 @@ const HomePage = () => {
               />}
               {user && user.id === post.userId && <OpenModalButton
                 buttonText={"Edit Post"}
-                modalComponent={<UpdatePost postId={post.id} />}
+                modalComponent={<UpdatePost post={post} />}
               />
               }
             </div>

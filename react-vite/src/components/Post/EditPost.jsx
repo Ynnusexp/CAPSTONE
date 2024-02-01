@@ -3,26 +3,14 @@ import { useDispatch, useSelector } from "react-redux"
 import { thunkUpdatePost, thunkGetAllPosts } from "../../redux/post"
 import { useModal } from "../../context/Modal"
 
-const UpdatePost = (postId) => {
+const UpdatePost = ({post}) => {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
-    const [imageUrl, setImageUrl] = useState("")
+    const [title, setTitle] = useState(post.title)
+    const [description, setDescription] = useState(post.description)
+    const [imageUrl, setImageUrl] = useState(post.imageUrl)
     const [errors, setErrors] = useState([])
 
-    const postFilter = useSelector((state) => Object.values(state.posts));
-
-    const updatingPost = postFilter.filter((post) => post.id === postId.postId);
-
-    useEffect(() => {
-
-        if (updatingPost) {
-            setTitle(updatingPost[0].title);
-            setDescription(updatingPost[0].description);
-            setImageUrl(updatingPost[0].image);
-        }
-    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -37,7 +25,7 @@ const UpdatePost = (postId) => {
             formData.append('description', description)
 
             try {
-                await dispatch(thunkUpdatePost(postId.postId, formData))
+                await dispatch(thunkUpdatePost(post.id, formData))
                 await dispatch(thunkGetAllPosts())
             } catch (error) {
                 console.error("There was a error updating your post!", error);

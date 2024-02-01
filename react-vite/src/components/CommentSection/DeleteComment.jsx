@@ -1,16 +1,18 @@
 import { useDispatch } from "react-redux"
-import { thunkDeleteComment, thunkGetAllComments } from "../../redux/post"
+
 import { useModal } from "../../context/Modal"
-import './DeletePost.css'
+// import './DeletePost.css'
+import { useParams } from "react-router-dom"
+import { thunkDeleteComment, thunkGetOneComment } from "../../redux/comment"
 
 const DeleteComment = (commentId) => {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
-
+    const { postId } = useParams()
     const deleteComment = async (e) => {
         e.preventDefault()
         await dispatch(thunkDeleteComment(commentId.commentId))
-        await dispatch(thunkGetAllComments())
+        await dispatch(thunkGetOneComment(postId))
         closeModal()
     }
     return (
