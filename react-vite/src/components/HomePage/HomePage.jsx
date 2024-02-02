@@ -7,7 +7,7 @@ import "./HomePage.css";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import CreatePost from "../Post/CreatePost";
 import DeletePost from "../Post/DeletePost";
-import UpdatePost from "../Post/EditPost";
+import UpdatePost from "../Post/UpdatePost";
 
 const HomePage = () => {
   const dispatch = useDispatch();

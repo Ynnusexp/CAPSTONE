@@ -82,7 +82,7 @@ export const thunkCreatePost = (formData) => async (dispatch) => {
 
 //UPDATE A POST
 export const thunkUpdatePost = (postId, post) => async (dispatch) => {
-    console.log( "LOOK HERE!!!!!!!!!!!!!!!!!!!!!!!!!", post)
+    
     const response = await fetch(`/api/posts/${postId}`, {
         method: "PUT",
         body: post

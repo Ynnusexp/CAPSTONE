@@ -3,21 +3,11 @@ import { useDispatch, useSelector  } from "react-redux";
 import { thunkUpdateComment, thunkGetAllComments } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 
-const UpdateComment = (commentId) => {
+const UpdateComment = (commentId, {postId} ) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  const [description, setDescription] = useState("");
-
-  const commentFilter = useSelector((state) => Object.values(state.comments));
-
-  const updatingComment = commentFilter.filter((comment) => comment.id === commentId.commentId);
-
-  useEffect(() => {
-
-    if (updatingComment) {
-        setDescription(updatingComment[0].description);
-    }
-}, []);
+  const [description, setDescription] = useState(postId);
+  const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,8 +16,14 @@ const UpdateComment = (commentId) => {
       const formData = new FormData();
       formData.append("description", description);
 
-        await dispatch(thunkUpdateComment(formData));
+      try {
+        await dispatch(thunkUpdateComment(commentId, formData));
         await dispatch(thunkGetAllComments());
+
+      } catch (error) {
+          console.error("There was a error updating your comment!", error);
+          setErrors(["There was a error updating your comment!"]);
+      }
 
 
     }
