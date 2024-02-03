@@ -1,4 +1,4 @@
-import { useModal } from '../../context/Modal';
+import { useModal } from "../../context/Modal";
 import "../Navigation/Navigation";
 
 function OpenModalButton({
@@ -7,7 +7,7 @@ function OpenModalButton({
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
   logout,
   createpost,
-  onModalClose // optional: callback function that will be called once the modal is closed
+  onModalClose, // optional: callback function that will be called once the modal is closed
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
@@ -17,7 +17,14 @@ function OpenModalButton({
     if (typeof onButtonClick === "function") onButtonClick();
   };
 
-  return <button className={`${logout} ${createpost}`} onClick={onClick}>{buttonText}</button>;
+  return (
+    <button className={`${logout} ${createpost}`} onClick={onClick}>
+      {createpost && (
+        <i className="fa-solid fa-pencil" style={{ marginRight: "8px" }}></i>
+      )}
+      {buttonText}
+    </button>
+  );
 }
 
 export default OpenModalButton;
