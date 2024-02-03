@@ -51,7 +51,9 @@ const Post = () => {
               />
             </div>
           )}
-
+          {user && comments?.length === 0 && (
+  <p className="first-to-reply">Be the first to Reply!</p>
+)}
           {comments &&
             comments.map((comment) => (
               <div key={comment.id} className="comment">

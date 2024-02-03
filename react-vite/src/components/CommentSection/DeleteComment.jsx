@@ -17,12 +17,13 @@ const DeleteComment = (commentId) => {
     }
     return (
         <div className='delete-CommentModal'>
-            <h1 className='delete-comment'>Delete This Comment?</h1>
+            {/* <h1 className='delete-comment'>Delete This Comment?</h1> */}
             <div className='comment-DeleteConfirm'>
-                Are you sure? This cannot be undone.
+            Are you sure you want to delete this comment?
             </div>
-            <button onClick={deleteComment} className="delete">Delete</button>
             <button onClick={closeModal} className="cancel">Cancel</button>
+            <button onClick={deleteComment} className="delete">OK</button>
+
         </div >
     )
 }

@@ -41,17 +41,19 @@
   display: flex;
   position: fixed;
   top: 10px;
-  right: 300px;
+  right: 280px;
   height: 10px;
   width: 300px;
   padding: 13px;
   text-align: left;
   background-color: #4d6184;
-  color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
 
+}
+.search-bar::placeholder {
+  color: #fff;
 }
 .nav-bar {
   position: fixed;
@@ -148,6 +150,20 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .inbox-button:hover{
+  background-color: #4d6184;
+}
+.account-button {
+  cursor: pointer;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color:transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.account-button:hover{
   background-color: #4d6184;
 }
 .create-post {

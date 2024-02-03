@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { thunkGetAllPosts } from "../../redux/post";
 import { useNavigate } from "react-router-dom";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./HomePage.css";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 // import CreatePost from "../Post/CreatePost";
@@ -82,22 +82,18 @@ const HomePage = () => {
             <div key={post.id} className="each-post">
               <div className="post-header">
                 <div className="name-follow">
-                  <p>{post?.user}</p>
-                  {/* <button onClick={() => navigate(`/posts/${post.id}`)} >
-              FOLLOW
-            </button> */}
-                  <button
+                  <p className="user-name">{post?.user}</p>
+                  <NavLink
+                    to={"/"}
                     className="follow"
                     onClick={() => alert("Feature is under maintenance!")}
                   >
-                    FOLLOW
-                  </button>
+                    Follow
+                  </NavLink>
                 </div>
-                {/* <NavLink to={"/"}>
-            FOLLOW
-          </NavLink> */}
-                <p className="post-date">{post?.date}</p>
+
               </div>
+              <p className="post-date">{post?.date}</p>
               <h2 className="post-title">{post?.title}</h2>
               <p className="post-description">{post?.description}</p>
               <img
@@ -105,36 +101,60 @@ const HomePage = () => {
                 className="post-image"
                 onClick={() => navigate(`/posts/${post.id}`)}
               />
-              <button onClick={() => navigate(`/posts/${post.id}`)}>
-                <p> {post?.comments?.length} notes </p>
+              <button
+                className="notes"
+                onClick={() => navigate(`/posts/${post.id}`)}
+              >
+                <p className="notes-word">
+                  <span className="notes-count">{post?.comments?.length} </span>
+                  {post?.comments?.length === 1 ? "note" : "notes"}
+                </p>
               </button>
 
               {/* <button onClick={() => alert("Feature is under maintenance!")} >
               COMMENTS
             </button> */}
               <div className="like-reply-delete">
+              <button
+                  className="share"
+                  onClick={() => alert("Feature coming soon!")}
+                  title="Share"
+                >
+                  <i className="fa-solid fa-share" style={{ fontSize: "24px" }}></i>
+                </button>
                 <button
                   className="reply"
                   onClick={() => navigate(`/posts/${post.id}`)}
+                  title="Reply"
                 >
-                  REPLY
+                  <i className="fa-solid fa-comment" style={{ fontSize: "24px" }}></i>
+                </button>
+                <button
+                  className="reblog"
+                  onClick={() => alert("Feature coming soon!")}
+                  title="Reblog"
+                >
+                  <i className="fa-solid fa-retweet" style={{ fontSize: "24px" }}></i>
                 </button>
                 <button
                   className="like"
-                  onClick={() => alert("Feature is under maintenance!")}
+                  onClick={() => alert("Feature coming soon!")}
+                  title="Like"
                 >
-                  LIKE
+                  <i className="fa-solid fa-heart" style={{ fontSize: "24px" }}></i>
                 </button>
                 {user && user.id === post.userId && (
                   <OpenModalButton
-                    buttonText={"Delete Post"}
+                    buttonText={"Delete"}
                     modalComponent={<DeletePost postId={post.id} />}
+                    // <i className="fa-solid fa-trash"></i>
                   />
                 )}
                 {user && user.id === post.userId && (
                   <OpenModalButton
-                    buttonText={"Edit Post"}
+                    buttonText={"Edit"}
                     modalComponent={<UpdatePost post={post} />}
+                    // <i className="fa-solid fa-pencil"></i>
                   />
                 )}
               </div>

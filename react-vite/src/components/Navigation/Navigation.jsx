@@ -18,10 +18,10 @@ function Navigation() {
     <div className="nav-bar">
       <div>
         <div className="left-main">
-          <div>
+          <div >
             {user && (
               <button className="home-button" onClick={() => navigate("/")}>
-                Home
+                <i className="fa-solid fa-house" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}> Home </span>
               </button>
             )}
           </div>
@@ -31,7 +31,7 @@ function Navigation() {
                 className="explore-button"
                 onClick={() => alert("Feature coming soon!")}
               >
-                Explore
+                <i className="fa-solid fa-map-location-dot" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Explore</span>
               </button>
             )}
           </div>
@@ -41,7 +41,7 @@ function Navigation() {
                 className="activity-button"
                 onClick={() => alert("Feature coming soon!")}
               >
-                Activity
+                <i className="fa-solid fa-bolt" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Activity</span>
               </button>
             )}
           </div>
@@ -51,28 +51,41 @@ function Navigation() {
                 className="messages-button"
                 onClick={() => alert("Feature is under maintenance!")}
               >
-                Messages
+                <i className="fa-solid fa-face-smile" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Messages</span>
               </button>
             )}
           </div>
           <div>
-            {user && (
-              <button
-                className="inbox-button"
+          {user && (
+            <button
+              className="inbox-button"
+              onClick={() => alert("Feature is under maintenance!")}
+            >
+              <i className="fa-solid fa-envelope" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Inbox</span>
+            </button>
+          )}
+          </div>
+
+          <div>
+              {user && (
+                <button
+                className="account-button"
                 onClick={() => alert("Feature is under maintenance!")}
               >
-                Inbox
+                <i className="fa-solid fa-user" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Account</span>
               </button>
-            )}
-            <div>
-              {user && (
-                <OpenModalButton
-                  buttonText={"Log Out"}
-                  modalComponent={<CreatePost />}
-                  logout="log-out-button"
-                />
               )}
             </div>
+          <div>
+            {user && (
+              <button
+              // NEED TO CHANGE TO MODAL WHEN LOG OUT AND APPLY FUNCTIONALITY
+                className="log-out-button"
+                onClick={() => alert("Feature is under maintenance!")}
+              >
+                <i className="fa-solid fa-door-closed" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Log Out</span>
+              </button>
+            )}
           </div>
 
           <div>
@@ -83,6 +96,7 @@ function Navigation() {
                 createpost={"create-post"}
               />
             )}
+            {/* <i className="fa-solid fa-pencil"></i> */}
           </div>
         </div>
       </div>
