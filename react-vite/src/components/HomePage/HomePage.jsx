@@ -91,7 +91,6 @@ const HomePage = () => {
                     Follow
                   </NavLink>
                 </div>
-
               </div>
               <p className="post-date">{post?.date}</p>
               <h2 className="post-title">{post?.title}</h2>
@@ -115,45 +114,60 @@ const HomePage = () => {
               COMMENTS
             </button> */}
               <div className="like-reply-delete">
-              <button
+                <button
                   className="share"
                   onClick={() => alert("Feature coming soon!")}
                   title="Share"
                 >
-                  <i className="fa-solid fa-share" style={{ fontSize: "24px" }}></i>
+                  <i
+                    className="fa-solid fa-share"
+                    style={{ fontSize: "24px" }}
+                  ></i>
                 </button>
                 <button
                   className="reply"
                   onClick={() => navigate(`/posts/${post.id}`)}
                   title="Reply"
                 >
-                  <i className="fa-solid fa-comment" style={{ fontSize: "24px" }}></i>
+                  <i
+                    className="fa-solid fa-comment"
+                    style={{ fontSize: "24px" }}
+                  ></i>
                 </button>
                 <button
                   className="reblog"
                   onClick={() => alert("Feature coming soon!")}
                   title="Reblog"
                 >
-                  <i className="fa-solid fa-retweet" style={{ fontSize: "24px" }}></i>
+                  <i
+                    className="fa-solid fa-retweet"
+                    style={{ fontSize: "24px" }}
+                  ></i>
                 </button>
                 <button
                   className="like"
                   onClick={() => alert("Feature coming soon!")}
                   title="Like"
                 >
-                  <i className="fa-solid fa-heart" style={{ fontSize: "24px" }}></i>
+                  <i
+                    className="fa-solid fa-heart"
+                    style={{ fontSize: "24px" }}
+                  ></i>
                 </button>
                 {user && user.id === post.userId && (
                   <OpenModalButton
-                    buttonText={"Delete"}
+                    deletePost={"delete-post"}
+                    // buttonText={"Delete"}
                     modalComponent={<DeletePost postId={post.id} />}
                     // <i className="fa-solid fa-trash"></i>
                   />
                 )}
                 {user && user.id === post.userId && (
                   <OpenModalButton
-                    buttonText={"Edit"}
+                    editPost={"edit-post"}
+                    // buttonText={"Edit"}
                     modalComponent={<UpdatePost post={post} />}
+
                     // <i className="fa-solid fa-pencil"></i>
                   />
                 )}

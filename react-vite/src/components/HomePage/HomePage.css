@@ -81,7 +81,21 @@
   border: none;
   padding: 0;
 }
+.delete-post {
+  cursor: pointer;
+  width: fit-content;
+  background: none;
+  border: none;
+  padding: 0;
 
+}
+.edit-post {
+  cursor: pointer;
+  width: fit-content;
+  background: none;
+  border: none;
+  padding: 0;
+}
 .like-reply-delete {
   display: flex;
   justify-content: space-between;

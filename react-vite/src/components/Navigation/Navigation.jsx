@@ -21,7 +21,7 @@ function Navigation() {
           <div >
             {user && (
               <button className="home-button" onClick={() => navigate("/")}>
-                <i className="fa-solid fa-house" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}> Home </span>
+                <i className="fa-solid fa-house" style={{ fontSize: "16px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}> Home </span>
               </button>
             )}
           </div>
@@ -31,7 +31,7 @@ function Navigation() {
                 className="explore-button"
                 onClick={() => alert("Feature coming soon!")}
               >
-                <i className="fa-solid fa-map-location-dot" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Explore</span>
+                <i className="fa-solid fa-map-location-dot" style={{ fontSize: "16px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Explore</span>
               </button>
             )}
           </div>
@@ -41,7 +41,7 @@ function Navigation() {
                 className="activity-button"
                 onClick={() => alert("Feature coming soon!")}
               >
-                <i className="fa-solid fa-bolt" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Activity</span>
+                <i className="fa-solid fa-bolt" style={{ fontSize: "16px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Activity</span>
               </button>
             )}
           </div>
@@ -51,7 +51,7 @@ function Navigation() {
                 className="messages-button"
                 onClick={() => alert("Feature is under maintenance!")}
               >
-                <i className="fa-solid fa-face-smile" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Messages</span>
+                <i className="fa-solid fa-face-smile" style={{ fontSize: "16px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Messages</span>
               </button>
             )}
           </div>
@@ -61,7 +61,7 @@ function Navigation() {
               className="inbox-button"
               onClick={() => alert("Feature is under maintenance!")}
             >
-              <i className="fa-solid fa-envelope" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Inbox</span>
+              <i className="fa-solid fa-envelope" style={{ fontSize: "16px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Inbox</span>
             </button>
           )}
           </div>
@@ -72,7 +72,7 @@ function Navigation() {
                 className="account-button"
                 onClick={() => alert("Feature is under maintenance!")}
               >
-                <i className="fa-solid fa-user" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Account</span>
+                <i className="fa-solid fa-user" style={{ fontSize: "16px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Account</span>
               </button>
               )}
             </div>
@@ -83,7 +83,7 @@ function Navigation() {
                 className="log-out-button"
                 onClick={() => alert("Feature is under maintenance!")}
               >
-                <i className="fa-solid fa-door-closed" style={{ fontSize: "18px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Log Out</span>
+                <i className="fa-solid fa-door-closed" style={{ fontSize: "16px",  marginRight: "8px" }}></i> <span style={{ fontSize: "16px"}}>Log Out</span>
               </button>
             )}
           </div>
@@ -91,7 +91,7 @@ function Navigation() {
           <div>
             {user && (
               <OpenModalButton
-                buttonText={"Create Post"}
+                buttonText={<span style={{ fontSize: '15px' }}>Create</span>}
                 modalComponent={<CreatePost />}
                 createpost={"create-post"}
               />
