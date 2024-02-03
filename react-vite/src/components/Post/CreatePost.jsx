@@ -53,7 +53,7 @@ const CreatePost = () => {
               placeholder="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              maxLength={100}
+              maxLength={30}
               className="title-input"
             />
           </label>
@@ -64,7 +64,7 @@ const CreatePost = () => {
               value={description}
               placeholder="Go ahead, put anything"
               onChange={(e) => setDescription(e.target.value)}
-              maxLength={255}
+              maxLength={200}
               className="description-input"
             />
           </label>
@@ -81,7 +81,7 @@ const CreatePost = () => {
           <button
             type="submit"
             disabled={title.length === 0 || description.length === 0}
-           
+
           >
             Create Post
           </button>
