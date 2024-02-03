@@ -100,20 +100,46 @@ const HomePage = () => {
                 className="post-image"
                 onClick={() => navigate(`/posts/${post.id}`)}
               />
-              <button
-                className="notes"
-                onClick={() => navigate(`/posts/${post.id}`)}
-              >
-                <p className="notes-word">
-                  <span className="notes-count">{post?.comments?.length} </span>
-                  {post?.comments?.length === 1 ? "note" : "notes"}
-                </p>
-              </button>
+              <div className="delete-edit">
+
+              {user && user.id === post.userId && (
+                <OpenModalButton
+                  deletePost={"delete-post"}
+                  // buttonText={"Delete"}
+                  modalComponent={<DeletePost postId={post.id} />}
+                  // <i className="fa-solid fa-trash"></i>
+                />
+              )}
+              {user && user.id === post.userId && (
+                <OpenModalButton
+                  editPost={"edit-post"}
+                  // buttonText={"Edit"}
+                  modalComponent={<UpdatePost post={post} />}
+
+                  // <i className="fa-solid fa-pencil"></i>
+                />
+              )}
+                </div>
+
 
               {/* <button onClick={() => alert("Feature is under maintenance!")} >
               COMMENTS
             </button> */}
-              <div className="like-reply-delete">
+              <div className="notes-like-reply-delete-reblog">
+                <button
+                  className="notes"
+                  onClick={() => navigate(`/posts/${post.id}`)}
+                >
+                  <p className="notes-word">
+                    <span className="notes-count">
+                      {post?.comments?.length}{" "}
+                    </span>
+                    {post?.comments?.length === 1 ? "note" : "notes"}
+                  </p>
+                </button>
+
+                <div className="feature-icons">
+
                 <button
                   className="share"
                   onClick={() => alert("Feature coming soon!")}
@@ -154,23 +180,10 @@ const HomePage = () => {
                     style={{ fontSize: "24px" }}
                   ></i>
                 </button>
-                {user && user.id === post.userId && (
-                  <OpenModalButton
-                    deletePost={"delete-post"}
-                    // buttonText={"Delete"}
-                    modalComponent={<DeletePost postId={post.id} />}
-                    // <i className="fa-solid fa-trash"></i>
-                  />
-                )}
-                {user && user.id === post.userId && (
-                  <OpenModalButton
-                    editPost={"edit-post"}
-                    // buttonText={"Edit"}
-                    modalComponent={<UpdatePost post={post} />}
 
-                    // <i className="fa-solid fa-pencil"></i>
-                  />
-                )}
+
+                </div>
+
               </div>
             </div>
           ))

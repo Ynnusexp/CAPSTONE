@@ -28,15 +28,21 @@
   margin-left:450px;
 }
 
-/* .search-bar {
-  position: fixed;
-  top: 10px;
-  right: 20px;
-  margin-right:225px;
-  background-color: #4d6184;
-  color: #fff;
-} */
+.ad {
+  cursor: pointer;
+  margin-left: 10px;
+  /* padding-left: 1300px;
+  padding-top: 20px; */
 
+}
+
+.right-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  margin-right: 20px;
+}
 .search-bar {
   display: flex;
   position: fixed;
@@ -57,6 +63,7 @@
 }
 .nav-bar {
   position: fixed;
+
 }
 
 .left-main {

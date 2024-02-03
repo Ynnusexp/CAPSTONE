@@ -96,12 +96,21 @@
   border: none;
   padding: 0;
 }
-.like-reply-delete {
+
+.notes-like-reply-delete-reblog {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
+  border-top: 1px solid #BBBBBB;
+  padding-top: 10px;
 }
 
+.feature-icons {
+  display: flex;
+  gap: 20px;
+
+}
 .name-follow {
   display: flex;
   align-items: center;
@@ -147,6 +156,13 @@
 .post-date {
   color: #BBBBBB;
   margin-top: -10px;
+}
+.delete-edit {
+  display: flex;
+  /* justify-content: space-evenly; */
+  justify-content: flex-end;
+  gap: 45px;
+
 }
 /* .middle-main {
   border-right: 1px solid #ccc;
