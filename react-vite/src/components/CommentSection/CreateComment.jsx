@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { thunkCreateComment, thunkGetAllComments } from "../../redux/comment";
+import { thunkCreateComment, thunkGetOneComment } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 
 const CreateComment = () => {
@@ -20,11 +20,11 @@ const CreateComment = () => {
 
       try {
         await dispatch(thunkCreateComment(formData));
-        await dispatch(thunkGetAllComments());
+        await dispatch(thunkGetOneComment());
 
       } catch (error) {
-        console.error("There was a error updating your comment!", error);
-        setErrors(["There was a error updating your comment!"]);
+        console.error("There was a error creating your comment!", error);
+        setErrors(["There was a error creating your comment!"]);
       }
     }
     closeModal();

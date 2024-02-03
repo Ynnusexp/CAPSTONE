@@ -18,5 +18,144 @@
 
 .wumblr-logo {
   height: 20px;
-  width: 100px
+  width: 100px;
+  position: fixed;
+  top: 25px;
+  left: 20px;
+  margin-left:450px;
+}
+
+/* .search-bar {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  margin-right:225px;
+  background-color: #4d6184;
+  color: #fff;
+} */
+
+.search-bar {
+  display: flex;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  height: 10px;
+  width: 300px;
+  padding: 13px;
+  text-align: left;
+  background-color: #4d6184;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.nav-bar {
+  position: fixed;
+}
+
+.left-main {
+  position: fixed;
+  bottom: 10px;
+  left: 400px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  border-right: 1px solid #ccc;
+
+
+}
+
+.home-button {
+  cursor: pointer;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #4d6184;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+.explore-button {
+  cursor: pointer;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #4d6184;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+.activity-button {
+  cursor: pointer;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #4d6184;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+.messages-button {
+  cursor: pointer;
+  background-color: #36465d;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #4d6184;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.inbox-button {
+  cursor: pointer;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #4d6184;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.create-post {
+  cursor: pointer;
+  background-color: #4d90fe;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+
+}
+
+.log-out-button {
+  cursor: pointer;
+  background-color: #36465d;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #4d6184;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
 }

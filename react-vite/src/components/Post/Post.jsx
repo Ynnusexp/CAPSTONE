@@ -66,12 +66,24 @@ const Post = () => {
                       buttonText={"Delete Comment"}
                       modalComponent={<DeleteComment commentId={comment.id} />}
                     />
-                   <OpenModalButton
-                     buttonText={"Edit Comment"}
-                     modalComponent={<UpdateComment commentId={comment.id} />}
-                   />
+                    <OpenModalButton
+                      buttonText={"Edit Comment"}
+                      modalComponent={<UpdateComment commentId={comment.id} />}
+                    />
                   </div>
                 )}
+                <button
+                  className="reply"
+                  onClick={() => alert("Feature is under maintenance!")}
+                >
+                  REPLY
+                </button>
+                <button
+                  className="like"
+                  onClick={() => alert("Feature is under maintenance!")}
+                >
+                  LIKE
+                </button>
               </div>
             ))}
         </div>

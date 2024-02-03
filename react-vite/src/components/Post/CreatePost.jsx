@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunkCreatePost, thunkGetAllPosts } from "../../redux/post";
 import { useModal } from "../../context/Modal";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ const CreatePost = () => {
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +39,7 @@ const CreatePost = () => {
       }
     }
     closeModal();
+    navigate("/")
   };
 
   return (
@@ -59,7 +62,7 @@ const CreatePost = () => {
             <textarea
               name="description"
               value={description}
-              placeholder="Description"
+              placeholder="Go ahead, put anything"
               onChange={(e) => setDescription(e.target.value)}
               maxLength={255}
               className="description-input"
@@ -78,6 +81,7 @@ const CreatePost = () => {
           <button
             type="submit"
             disabled={title.length === 0 || description.length === 0}
+           
           >
             Create Post
           </button>

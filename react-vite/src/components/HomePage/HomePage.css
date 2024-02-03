@@ -16,15 +16,18 @@
   width: fit-content;
 }
 
-.search-bar {
+/* .search-bar {
   display: flex;
   height: 5px;
   width: 300px;
   padding: 13px;
-  border-radius: 11px;
-  background-color: #829ec6;
   text-align: left;
-}
+  background-color: #4d6184;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+} */
 
 .post-description {
   display: flex;
@@ -69,4 +72,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-right: 1px solid #ccc;
+
 }
+
+.home-page {
+  border-right: 1px solid #ccc;
+}
+/* .left-main {
+  position: fixed;
+  bottom: 10px;
+  left: 400px;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-right: 1px solid #ccc;
+} */

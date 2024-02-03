@@ -3,10 +3,10 @@ import { useDispatch, useSelector  } from "react-redux";
 import { thunkUpdateComment, thunkGetAllComments } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 
-const UpdateComment = (commentId, {postId} ) => {
+const UpdateComment = ({commentId}) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  const [description, setDescription] = useState(postId);
+  const [description, setDescription] = useState(commentId.description);
   const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {

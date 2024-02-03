@@ -17,7 +17,7 @@ const DeleteComment = (commentId) => {
     }
     return (
         <div className='delete-CommentModal'>
-            <h1 className='delete-comment'>Delete This Post?</h1>
+            <h1 className='delete-comment'>Delete This Comment?</h1>
             <div className='comment-DeleteConfirm'>
                 Are you sure? This cannot be undone.
             </div>
