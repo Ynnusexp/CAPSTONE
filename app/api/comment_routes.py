@@ -81,12 +81,12 @@ def update_posts(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        data = form.data
-        comment.description=data["description"]
+
+        comment.description=form.description.data
 
         db.session.commit()
 
-        return {"message": "You have updated successfully!"}
+        return {"Comment": comment.to_dict()}
     return {'errors': validation_errors(form.errors)}, 400
 
 @comment_routes.route('/<int:id>' , methods=["DELETE"])

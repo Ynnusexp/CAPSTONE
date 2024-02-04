@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunkCreateComment, thunkGetOneComment } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
+import { useParams } from "react-router-dom";
 
 const CreateComment = () => {
   const dispatch = useDispatch();
+  const {postId} = useParams();
   const { closeModal } = useModal();
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
@@ -15,11 +17,12 @@ const CreateComment = () => {
     e.preventDefault();
 
     if (description) {
-      const formData = new FormData();
-      formData.append("description", description);
+      // const formData = new FormData();
+      // formData.append("description", description);
 
       try {
-        await dispatch(thunkCreateComment(formData));
+        console.log(postId, " POSTT ID HERE")
+        await dispatch(thunkCreateComment({description: description}, postId));
         await dispatch(thunkGetOneComment());
 
       } catch (error) {
@@ -34,7 +37,7 @@ const CreateComment = () => {
     <>
       <div className="create-post">
         <form onSubmit={handleSubmit} className="create-form">
-
+        {errors && <div> {errors}</div>}
           <label className="description-label">
             <textarea
               name="description"

@@ -1,11 +1,9 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Post, db
-from app.forms import PostForm
+from app.models import Post, Comment, db
+from app.forms import PostForm, CommentForm
 from .aws import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 from datetime import datetime
-
-
 
 post_routes = Blueprint('posts', __name__)
 
@@ -77,6 +75,30 @@ def create_posts():
         db.session.commit()
 
         return new_post.to_dict()
+
+    return {'errors': validation_errors(form.errors)}, 400
+
+@post_routes.route('/<int:id>' , methods=["POST"])
+# @login_required
+def create_comments(id):
+    user_id = current_user.id
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+
+        params = {
+            "description": form.description.data,
+            "post_id": id,
+            "user_id": user_id
+            }
+
+        new_comment = Comment(**params)
+
+        db.session.add(new_comment)
+        db.session.commit()
+
+        return {"Comment": new_comment.to_dict()}
 
     return {'errors': validation_errors(form.errors)}, 400
 

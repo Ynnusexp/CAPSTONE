@@ -83,14 +83,20 @@ export const thunkGetOneComment = (postId) => async (dispatch) => {
 export const thunkCreateComment = (commentDetails, postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}`, {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(commentDetails),
     });
 
     if (response.ok) {
         const newComment = await response.json();
-        dispatch(createComment(newComment));
+        console.log("LOOK HERE!!!", newComment)
+        dispatch(createComment(newComment.Comment));
         return newComment;
     } else {
+        const errors = await response.json()
+        console.log(errors, " ERRORS HERE!!!!")
         return { errors: "Could not create comment!" }
     }
 };
@@ -105,7 +111,7 @@ export const thunkUpdateComment = (comment, commentId) => async (dispatch) => {
     });
     if (response.ok) {
         const updatedComment = await response.json();
-        dispatch(updateComment(updatedComment));
+        dispatch(updateComment(updatedComment.Comment));
         return updatedComment
     } else {
         return { errors: "Error occured while updating comment!" }

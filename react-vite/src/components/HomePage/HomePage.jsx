@@ -79,7 +79,7 @@ const HomePage = () => {
         {/* <h1 > Welcome to your corner of the internet </h1> */}
         {filteredPosts
           .map((post) => (
-            <div key={post.id} className="each-post">
+            <div key={post?.id} className="each-post">
               <div className="post-header">
                 <div className="name-follow">
                   <p className="user-name">{post?.user}</p>
@@ -98,19 +98,19 @@ const HomePage = () => {
               <img
                 src={post?.image}
                 className="post-image"
-                onClick={() => navigate(`/posts/${post.id}`)}
+                onClick={() => navigate(`/posts/${post?.id}`)}
               />
               <div className="delete-edit">
 
-              {user && user.id === post.userId && (
+              {user && user?.id === post?.userId && (
                 <OpenModalButton
                   deletePost={"delete-post"}
                   // buttonText={"Delete"}
-                  modalComponent={<DeletePost postId={post.id} />}
+                  modalComponent={<DeletePost postId={post?.id} />}
                   // <i className="fa-solid fa-trash"></i>
                 />
               )}
-              {user && user.id === post.userId && (
+              {user && user?.id === post?.userId && (
                 <OpenModalButton
                   editPost={"edit-post"}
                   // buttonText={"Edit"}
@@ -128,7 +128,7 @@ const HomePage = () => {
               <div className="notes-like-reply-delete-reblog">
                 <button
                   className="notes"
-                  onClick={() => navigate(`/posts/${post.id}`)}
+                  onClick={() => navigate(`/posts/${post?.id}`)}
                 >
                   <p className="notes-word">
                     <span className="notes-count">
@@ -152,7 +152,7 @@ const HomePage = () => {
                 </button>
                 <button
                   className="reply"
-                  onClick={() => navigate(`/posts/${post.id}`)}
+                  onClick={() => navigate(`/posts/${post?.id}`)}
                   title="Reply"
                 >
                   <i

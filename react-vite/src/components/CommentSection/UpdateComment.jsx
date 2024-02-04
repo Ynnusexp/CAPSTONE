@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector  } from "react-redux";
-import { thunkUpdateComment, thunkGetAllComments } from "../../redux/comment";
+import { thunkUpdateComment, thunkGetOneComment } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 
 const UpdateComment = ({commentId}) => {
@@ -13,19 +13,17 @@ const UpdateComment = ({commentId}) => {
     e.preventDefault();
 
     if (description) {
-      const formData = new FormData();
-      formData.append("description", description);
+      // const formData = new FormData();
+      // formData.append("description", description);
 
       try {
-        await dispatch(thunkUpdateComment(commentId, formData));
-        await dispatch(thunkGetAllComments());
+        await dispatch(thunkUpdateComment({description: description},commentId));
+        await dispatch(thunkGetOneComment());
 
       } catch (error) {
           console.error("There was a error updating your comment!", error);
           setErrors(["There was a error updating your comment!"]);
       }
-
-
     }
     closeModal();
   };
@@ -47,7 +45,7 @@ const UpdateComment = ({commentId}) => {
           </label>
           <button
             type="submit"
-            disabled={description.length === 0}
+            disabled={description?.length === 0}
           >
             Update
           </button>
