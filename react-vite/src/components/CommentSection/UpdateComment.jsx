@@ -3,10 +3,11 @@ import { useDispatch, useSelector  } from "react-redux";
 import { thunkUpdateComment, thunkGetOneComment } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 
-const UpdateComment = ({commentId}) => {
+const UpdateComment = ({comment}) => {
+
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  const [description, setDescription] = useState(commentId.description);
+  const [description, setDescription] = useState(comment.description);//////////////////////
   const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {
@@ -17,7 +18,7 @@ const UpdateComment = ({commentId}) => {
       // formData.append("description", description);
 
       try {
-        await dispatch(thunkUpdateComment({description: description},commentId));
+        await dispatch(thunkUpdateComment({description: description}, comment.id));
         await dispatch(thunkGetOneComment());
 
       } catch (error) {
@@ -49,7 +50,9 @@ const UpdateComment = ({commentId}) => {
           >
             Update
           </button>
-          <button onClick={closeModal} className="cancel">Cancel</button>
+          <button
+          onClick={closeModal}
+          className="cancel">Cancel</button>
         </form>
       </div>
     </>

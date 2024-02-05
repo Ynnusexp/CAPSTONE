@@ -39,7 +39,7 @@ const CreatePost = () => {
       }
     }
     closeModal();
-    navigate("/")
+    navigate("/");
   };
 
   return (

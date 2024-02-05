@@ -109,9 +109,11 @@ export const thunkUpdateComment = (comment, commentId) => async (dispatch) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(comment)
     });
+
     if (response.ok) {
         const updatedComment = await response.json();
         dispatch(updateComment(updatedComment.Comment));
+        console.log(updatedComment, "OVVA HERE")
         return updatedComment
     } else {
         return { errors: "Error occured while updating comment!" }

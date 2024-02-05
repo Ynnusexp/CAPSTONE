@@ -70,7 +70,7 @@ const Post = () => {
                     />
                     <OpenModalButton
                       buttonText={"Edit Comment"}
-                      modalComponent={<UpdateComment commentId={comment.id} />}
+                      modalComponent={<UpdateComment comment={comment} />}
                     />
                   </div>
                 )}
@@ -87,7 +87,7 @@ const Post = () => {
                   LIKE
                 </button>
               </div>
-            ))}
+            )).reverse()}
         </div>
       </div>
     </>
