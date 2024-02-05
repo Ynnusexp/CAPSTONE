@@ -126,6 +126,8 @@ def update_posts(id):
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    image_upload = None
+    
     if form.validate_on_submit():
         data = form.data
 
