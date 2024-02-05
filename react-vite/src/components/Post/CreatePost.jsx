@@ -73,7 +73,7 @@ const CreatePost = () => {
             Image (**optional):
             <input
               type="file"
-              accept="image/*"
+              accept=".jpeg, .jpg, .gif, .png"
               onChange={(e) => setImageUrl(e.target.files[0])}
               className="file-label"
             />
