@@ -7,11 +7,11 @@ from sqlalchemy.sql import text
 fake = Faker()
 
 def seed_comments():
-    for _ in range(101):
+    for _ in range(40):
 
         comment = Comment(
             user_id=choice(range(1,11)),
-            post_id=choice(range(1,101)),
+            post_id=choice(range(1,20)),
             description=fake.paragraph(),
         )
 

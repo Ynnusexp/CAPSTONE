@@ -8,7 +8,7 @@ from sqlalchemy.sql import text
 fake = Faker()
 
 def seed_posts():
-    for _ in range(101):
+    for _ in range(20):
 
         response = requests.get("https://picsum.photos/900/500")
 
