@@ -2,8 +2,10 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { thunkUpdatePost, thunkGetAllPosts } from "../../redux/post"
 import { useModal } from "../../context/Modal"
+import './UpdatePost.css'
 
-const UpdatePost = ({post}) => {
+
+const UpdatePost = ({ post }) => {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
     const [title, setTitle] = useState(post.title)
@@ -48,7 +50,7 @@ const UpdatePost = ({post}) => {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             maxLength={50}
-                            className='title-label'
+                            className='title-input'
                         />
                     </label>
 
@@ -64,14 +66,14 @@ const UpdatePost = ({post}) => {
                     </label>
 
                     <label className='image-label'>
-                        Image (**optional):
+                        Image (optional):
                         <input type='file'
-                         accept=".jpeg, .jpg, .gif, .png"
-                        onChange={(e) => setImageUrl(e.target.files[0])}
-                        className='file-label'
+                            accept=".jpeg, .jpg, .gif, .png"
+                            onChange={(e) => setImageUrl(e.target.files[0])}
+                            className='file-label'
                         />
                     </label>
-                    <button type='submit' disabled={title?.length === 0 || description?.length === 0}>
+                    <button type='submit' className='update-post-modal-button' disabled={title?.length === 0 || description?.length === 0}>
                         Update Post
                     </button>
                 </form>

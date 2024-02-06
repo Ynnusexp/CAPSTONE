@@ -1,12 +1,20 @@
 .profile-dropdown {
-  position: absolute;
+  /* position: absolute; */
 }
 
 .profile-button {
   display: flex;
-  padding-left:250px;
+  padding-left: 250px;
   color: red
+}
 
+
+
+.toppage {
+  width: 300px;
+  /* padding-left: 250px; */
+  display: flex;
+  justify-content: right;
 }
 
 .logo {
@@ -15,68 +23,97 @@
   margin-top: 30px;
 
 }
+
 /* .logo:hover {
   transform: rotate(360deg);
 } */
 
-.wumblr-logo {
-  height: 20px;
-  width: 100px;
-  position: fixed;
-  top: 25px;
-  left: 20px;
-  margin-left:450px;
+
+
+.wumlogo {
+  display: flex;
+  margin-left: 30px;
+  width: 150px;
+  margin-bottom: 20px;
 }
 
 .ad {
   cursor: pointer;
   margin-left: 10px;
-  /* padding-left: 1300px;
-  padding-top: 20px; */
-
+  display: inline-flex;
+  padding-left: 550px;
+  padding-top: 20px;
+  margin-bottom: 600px;
 }
+
+.create-word {
+  font-size: 20px;
+  margin-right: 18px;
+}
+
+
 
 .right-main {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: flex-end;
-  flex-grow: 1;
-  margin-right: 20px;
+  /* flex-grow: 1; */
+  margin-left: 20px;
 }
+
 .search-bar {
   display: flex;
-  position: fixed;
-  top: 10px;
-  right: 280px;
-  height: 10px;
-  width: 300px;
-  padding: 13px;
+  /* position: fixed; */
+  /* top: 10px; */
+  /* right: 220px; */
+  height: 34px;
+  width: 279px;
+  /* padding: 13px; */
   text-align: left;
-  background-color: #4d6184;
+  background-color: #405368;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
+  padding-left: 25px;
+  color: #BCC3CA;
 
 }
+
+#search-icon {
+  display: flex;
+  color: #BCC3CA;
+}
+
 .search-bar::placeholder {
-  color: #fff;
+  color: #BCC3CA;
 }
-.nav-bar {
-  position: fixed;
 
+.nav-bar {
+  /* position: sticky; */
+  flex-direction: column;
+  width: fit-content;
+  display: inline-flex;
+}
+
+.box-one {
+  width: fit-content;
+  display: flex;
+  /* position: fixed; */
 }
 
 .left-main {
-  position: fixed;
-  bottom: 10px;
-  left: 400px;
+  /* position: fixed; */
+  /* bottom: 10px; */
+  /* left: 400px; */
   padding: 10px;
   border: none;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-evenly;
-  border-right: 1px solid #ccc;
+  /* border-right: 1px solid #ccc; */
+  width: fit-content;
+  /* margin-right: 20px; */
 
 
 }
@@ -86,30 +123,34 @@
   width: 200px;
   margin: 5px;
   padding: 10px;
-  background-color:transparent;
+  background-color: transparent;
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
 
 }
+
 .home-button:hover {
-  background-color: #4d6184;
+  background-color: #122943;
 }
+
 .explore-button {
+  display: flex;
   cursor: pointer;
   width: 200px;
   margin: 5px;
   padding: 10px;
-  background-color:transparent;
+  background-color: transparent;
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
 
 }
+
 .explore-button:hover {
-  background-color: #4d6184;
+  background-color: #122943;
 }
 
 .activity-button {
@@ -117,15 +158,16 @@
   width: 200px;
   margin: 5px;
   padding: 10px;
-  background-color:transparent;
+  background-color: transparent;
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
 
 }
+
 .activity-button:hover {
-  background-color: #4d6184;
+  background-color: #122943;
 }
 
 .messages-button {
@@ -134,48 +176,59 @@
   width: 200px;
   margin: 5px;
   padding: 10px;
-
-  background-color:transparent;
+  display: flex;
+  background-color: transparent;
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
 }
 
 .messages-button:hover {
-  background-color: #4d6184;
+  background-color: #122943
 }
+
 .inbox-button {
   cursor: pointer;
   width: 200px;
   margin: 5px;
   padding: 10px;
-  background-color:transparent;
+  background-color: transparent;
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  display: flex;
 }
-.inbox-button:hover{
-  background-color: #4d6184;
+
+.inbox-button:hover {
+  background-color: #122943
 }
+
 .account-button {
   cursor: pointer;
   width: 200px;
   margin: 5px;
   padding: 10px;
-  background-color:transparent;
+  background-color: transparent;
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  display: flex;
 }
-.account-button:hover{
-  background-color: #4d6184;
+
+.account-button:hover {
+  background-color: #122943
 }
+
+.create-post:hover {
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0);
+}
+
 .create-post {
   cursor: pointer;
-  background-color: #4d90fe;
+  background-color: #00B8FF;
   color: #000;
   padding: 10px 20px;
   border: none;
@@ -184,8 +237,46 @@
   font-size: 20px;
   font-weight: bold;
   width: 200px;
+  height: 45px;
+  /* font-size: 25px; */
+}
+
+.log-in {
+  display: flex;
+  cursor: pointer;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
 
 }
+
+.log-in:hover {
+  background-color: #122943;
+}
+
+.signup {
+  display: flex;
+  cursor: pointer;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+
+}
+
+.signup:hover {
+  background-color: #122943;
+}
+
 
 .log-out-button {
   cursor: pointer;
@@ -193,13 +284,14 @@
   width: 200px;
   margin: 5px;
   padding: 10px;
-  background-color:transparent;
+  background-color: transparent;
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  display: flex;
 }
 
-.log-out-button:hover{
-  background-color: #4d6184;
+.log-out-button:hover {
+  background-color: #122943;
 }

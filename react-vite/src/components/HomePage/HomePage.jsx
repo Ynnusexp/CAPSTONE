@@ -8,186 +8,165 @@ import OpenModalButton from "../OpenModalButton/OpenModalButton";
 // import CreatePost from "../Post/CreatePost";
 import DeletePost from "../Post/DeletePost";
 import UpdatePost from "../Post/UpdatePost";
+import Navigation from "../Navigation/Navigation";
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [search, setSearch] = useState();
   const allPosts = useSelector((state) => state.posts);
   const user = useSelector((state) => state.session.user);
   //   console.log("POST HERE!!!!!!!!!!!!!!", allPosts)
 
   const filteredPosts = Object.values(allPosts);
 
+  function formatDate(inputDate) {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const dateObj = new Date(inputDate);
+    const dayOfWeek = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
+    const dayOfMonth = dateObj.getDate();
+    const month = months[dateObj.getMonth()];
+
+    return `${dayOfWeek}, ${dayOfMonth} ${month}`;
+  }
+
+  const searchIcon = () => {
+    return (
+      <i className="fa fa-search" aria-hidden="true" id="search-icon"></i>
+    )
+  }
+
   useEffect(() => {
     dispatch(thunkGetAllPosts());
   }, [dispatch]);
 
   return (
-    <div className="home-page">
-      {/* <div className="left-main">
-      <div>
-          {user && (
-            <button className="home-button"
-            onClick={() => navigate("/")}>
-              HOME
-            </button>
-          )}
-        </div>
-        <div>
-          {user && (
-            <button
-              className="explore-button"
-              onClick={() => alert("Feature coming soon!")}
-            >
-              Explore
-            </button>
-          )}
-        </div>
-        <div>
-          {user && (
-            <button
-              className="messages-button"
-              onClick={() => alert("Feature is under maintenance!")}
-            >
-              Messages
-            </button>
-          )}
-        </div>
-        <div>
-          {user && (
-            <button
-              className="inbox-button"
-              onClick={() => alert("Feature is under maintenance!")}
-            >
-              Inbox
-            </button>
-          )}
-        </div>
+    <div className="outer">
 
-        <div>
-          {user && (
-            <OpenModalButton
-              buttonText={"Create Post"}
-              modalComponent={<CreatePost />}
-            />
-          )}
-        </div>
-      </div> */}
 
-      <div className="all-posts">
-        {/* <h1 > Welcome to your corner of the internet </h1> */}
-        {filteredPosts
-          .map((post) => (
-            <div key={post?.id} className="each-post">
-              <div className="post-header">
-                <div className="name-follow">
-                  <p className="user-name">{post?.user}</p>
-                  <NavLink
-                    to={"/"}
-                    className="follow"
-                    onClick={() => alert("Feature is under maintenance!")}
+      <div className="home-page">
+
+        <div className="box-one">
+          <Navigation />
+        </div>
+        <div className="all-posts">
+          {filteredPosts
+            .map((post) => (
+              <div key={post?.id} className="each-post">
+                <div className="post-header">
+                  <div className="name-follow">
+                    <p className="user-name">{post?.user}</p>
+                    <NavLink
+                      to={"/"}
+                      className="follow"
+                      onClick={() => alert("Feature is under maintenance!")}
+                    >
+                      Follow
+                    </NavLink>
+                  </div>
+                </div>
+                <p className="post-date">{formatDate(post?.date)}</p>
+                <h2 className="post-title">{post?.title}</h2>
+                <p className="post-description">{post?.description}</p>
+                <img
+                  src={post?.image}
+                  className="post-image"
+                  onClick={() => navigate(`/posts/${post?.id}`)}
+                />
+
+                <div className="notes-like-reply-delete-reblog">
+                  <button
+                    className="notes"
+                    onClick={() => navigate(`/posts/${post?.id}`)}
                   >
-                    Follow
-                  </NavLink>
+                    <p className="notes-word">
+                      <span className="notes-count">
+                        {post?.comments?.length}{" "}
+                      </span>
+                      {post?.comments?.length === 1 ? "note" : "notes"}
+                    </p>
+                  </button>
+
+                  <div className="feature-icons">
+                    <div className="delete-edit">
+
+                      {user && user?.id === post?.userId && (
+                        <OpenModalButton
+                          className={"edit-post"}
+                          buttonText={<i className="fa-solid fa-pencil" style={{ fontSize: "24px", marginRight: "0px" }} title="Edit"></i>}
+                          modalComponent={<UpdatePost post={post} />}
+                        />
+                      )}
+                      {user && user?.id === post?.userId && (
+                        <OpenModalButton
+                          className={"delete-post"}
+                          buttonText={<i className="fa-solid fa-trash" style={{ fontSize: "24px", marginRight: "0px" }} title="Delete"></i>}
+                          modalComponent={<DeletePost postId={post?.id} />}
+                        />
+                      )}
+                    </div>
+                    <button
+                      className="share"
+                      onClick={() => alert("Feature coming soon!")}
+                      title="Share"
+                    >
+                      <i
+                        className="fa-solid fa-share"
+                        style={{ fontSize: "24px" }}
+                      ></i>
+                    </button>
+                    <button
+                      className="reply"
+                      onClick={() => navigate(`/posts/${post?.id}`)}
+                      title="Reply"
+                    >
+                      <i
+                        className="fa-solid fa-comment"
+                        style={{ fontSize: "24px" }}
+                      ></i>
+                    </button>
+                    <button
+                      className="reblog"
+                      onClick={() => alert("Feature coming soon!")}
+                      title="Reblog"
+                    >
+                      <i
+                        className="fa-solid fa-retweet"
+                        style={{ fontSize: "24px" }}
+                      ></i>
+                    </button>
+                    <button
+                      className="like"
+                      onClick={() => alert("Feature coming soon!")}
+                      title="Like"
+                    >
+                      <i
+                        className="fa-solid fa-heart"
+                        style={{ fontSize: "24px" }}
+                      ></i>
+                    </button>
+
+
+                  </div>
+
                 </div>
               </div>
-              <p className="post-date">{post?.date}</p>
-              <h2 className="post-title">{post?.title}</h2>
-              <p className="post-description">{post?.description}</p>
-              <img
-                src={post?.image}
-                className="post-image"
-                onClick={() => navigate(`/posts/${post?.id}`)}
-              />
-              <div className="delete-edit">
-
-              {user && user?.id === post?.userId && (
-                <OpenModalButton
-                  deletePost={"delete-post"}
-                  // buttonText={"Delete"}
-                  modalComponent={<DeletePost postId={post?.id} />}
-                  // <i className="fa-solid fa-trash"></i>
-                />
-              )}
-              {user && user?.id === post?.userId && (
-                <OpenModalButton
-                  editPost={"edit-post"}
-                  // buttonText={"Edit"}
-                  modalComponent={<UpdatePost post={post} />}
-
-                  // <i className="fa-solid fa-pencil"></i>
-                />
-              )}
-                </div>
-
-
-              {/* <button onClick={() => alert("Feature is under maintenance!")} >
-              COMMENTS
-            </button> */}
-              <div className="notes-like-reply-delete-reblog">
-                <button
-                  className="notes"
-                  onClick={() => navigate(`/posts/${post?.id}`)}
-                >
-                  <p className="notes-word">
-                    <span className="notes-count">
-                      {post?.comments?.length}{" "}
-                    </span>
-                    {post?.comments?.length === 1 ? "note" : "notes"}
-                  </p>
-                </button>
-
-                <div className="feature-icons">
-
-                <button
-                  className="share"
-                  onClick={() => alert("Feature coming soon!")}
-                  title="Share"
-                >
-                  <i
-                    className="fa-solid fa-share"
-                    style={{ fontSize: "24px" }}
-                  ></i>
-                </button>
-                <button
-                  className="reply"
-                  onClick={() => navigate(`/posts/${post?.id}`)}
-                  title="Reply"
-                >
-                  <i
-                    className="fa-solid fa-comment"
-                    style={{ fontSize: "24px" }}
-                  ></i>
-                </button>
-                <button
-                  className="reblog"
-                  onClick={() => alert("Feature coming soon!")}
-                  title="Reblog"
-                >
-                  <i
-                    className="fa-solid fa-retweet"
-                    style={{ fontSize: "24px" }}
-                  ></i>
-                </button>
-                <button
-                  className="like"
-                  onClick={() => alert("Feature coming soon!")}
-                  title="Like"
-                >
-                  <i
-                    className="fa-solid fa-heart"
-                    style={{ fontSize: "24px" }}
-                  ></i>
-                </button>
-
-
-                </div>
-
-              </div>
-            </div>
-          ))
-          .reverse()}
+            ))
+            .reverse()}
+        </div>
+        <div className="right-main">
+          <input
+            className="search-bar"
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onClick={() => alert("Feature is under maintenance!")}
+            placeholder={"Search Wumblr"}
+          />
+        </div>
       </div>
     </div>
   );

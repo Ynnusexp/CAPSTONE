@@ -1,0 +1,93 @@
+.login-modal {
+    display: flex;
+    flex-direction: column;
+    height: 215px;
+    width: 250px;
+    background-color: #001935;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.login-header {
+    color: white
+}
+
+.email-input {
+    width: 225px;
+    margin-bottom: 20px;
+}
+
+.password-input {
+    width: 225px;
+    margin-bottom: 20px;
+
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.errors {
+    color: red;
+    position: fixed;
+    font-size: 14px;
+    padding-top: 8px;
+}
+
+.errors1 {
+    color: red;
+    position: fixed;
+    font-size: 14px;
+    padding-top: 50px;
+}
+
+
+.login-button {
+    background-color: #00B8FF;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    border: none;
+    width: 75px;
+    height: 30px;
+    margin-bottom: 8px;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0);
+}
+
+.login-button:enabled {
+    border: none
+}
+
+
+.demo-user {
+    background-color: #0091F7;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    border: none;
+    width: 100px;
+    height: 30px;
+    margin-bottom: 8px;
+}
+
+.demo-user:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0);
+}
+
+.demo-user:enabled {
+    border: none
+}
+
+.login-buttons-cont {
+    display: flex;
+    margin-top: 5px;
+    gap: 10px
+}

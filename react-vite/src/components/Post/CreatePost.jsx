@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { thunkCreatePost, thunkGetAllPosts } from "../../redux/post";
 import { useModal } from "../../context/Modal";
 import { useNavigate } from "react-router-dom";
-
+import './CreatePost.css'
 const CreatePost = () => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
@@ -44,8 +44,8 @@ const CreatePost = () => {
 
   return (
     <>
-      <div className="create-post">
-        <form onSubmit={handleSubmit} className="create-form">
+      <div className="create-post-modal">
+        <form onSubmit={handleSubmit} className="create-post-form">
           <label className="title-label">
             <input
               type="text"
@@ -69,8 +69,9 @@ const CreatePost = () => {
             />
           </label>
 
+
           <label className="image-label">
-            Image (**optional):
+            <label>Image (optional):</label>
             <input
               type="file"
               accept=".jpeg, .jpg, .gif, .png"
@@ -78,8 +79,10 @@ const CreatePost = () => {
               className="file-label"
             />
           </label>
+
           <button
             type="submit"
+            className="create-post-modal-button"
             disabled={title.length === 0 || description.length === 0}
 
           >

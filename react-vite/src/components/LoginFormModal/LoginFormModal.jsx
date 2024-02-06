@@ -39,50 +39,57 @@ function LoginFormModal() {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-  const serverResponse = await dispatch(
-    thunkLogin({
-      email: "demo@aa.io",
-      password: "password",
-    })
-  );
+    const serverResponse = await dispatch(
+      thunkLogin({
+        email: "demo@aa.io",
+        password: "password",
+      })
+    );
 
-  if (serverResponse) {
-    setErrors(serverResponse);
-  } else {
-    navigate("/");
+    if (serverResponse) {
+      setErrors(serverResponse);
+    } else {
+      navigate("/");
 
-    closeModal();
-  }
-};
+      closeModal();
+    }
+  };
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='login-modal'>
+      <h1 className='login-header'>Log In</h1>
+      <form onSubmit={handleSubmit} className='login-form'>
         <label>
-          Email
+          {/* Email */}
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            placeholder="Email"
+            className='email-input'
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p className='errors'>{errors.email}</p>}
         <label>
-          Password
+          {/* Password */}
           <input
             type="password"
             value={password}
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             required
+            className='password-input'
           />
         </label>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        {errors.password && <p className='errors1'>{errors.password}</p>}
+        <div className='login-buttons-cont'>
+
+          <button type="submit" className="login-button" disabled={email.length === 0 || password.length === 0}>Log In</button>
+          <button onClick={demoLogin} className="demo-user">Demo User</button>
+        </div>
       </form>
-      <button  onClick={demoLogin}> DEMO USER </button>
-    </>
+    </div>
   );
 }
 

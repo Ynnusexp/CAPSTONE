@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { thunkGetOnePost } from "../../redux/post";
 import { useParams } from "react-router-dom";
 import { thunkGetOneComment } from "../../redux/comment";
@@ -9,10 +9,12 @@ import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import DeleteComment from "../CommentSection/DeleteComment";
 import CreateComment from "../CommentSection/CreateComment";
 import UpdateComment from "../CommentSection/UpdateComment";
+import Navigation from "../Navigation/Navigation";
 
 const Post = () => {
   const dispatch = useDispatch();
   const { postId } = useParams();
+  const [search, setSearch] = useState();
   const currentPost = useSelector((state) => state.posts);
   const comments = useSelector((state) => Object.values(state.comments));
   const user = useSelector((state) => state.session.user);
@@ -25,72 +27,112 @@ const Post = () => {
     fetchData();
   }, [dispatch, postId]);
 
+  function formatDate(inputDate) {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const dateObj = new Date(inputDate);
+    const dayOfWeek = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
+    const dayOfMonth = dateObj.getDate();
+    const month = months[dateObj.getMonth()];
+
+    return `${dayOfWeek}, ${dayOfMonth} ${month}`;
+  }
+
   // if (!currentPost) return null
   // if (!comments) return null
 
   return (
-    <>
-      <div className="maincont">
+    <div className="home-page">
+      <div className="box-one">
+        <Navigation />
+      </div>
+      <div className="all-posts">
         <div key={currentPost.id} className="each-post">
           <div className="post-header">
             <div className="name-follow">
               <p>{currentPost?.user}</p>
             </div>
-            <p className="post-date">{currentPost?.date}</p>
           </div>
+          <p className="post-date">{formatDate(currentPost?.date)}</p>
           <h2 className="post-title">{currentPost?.title}</h2>
           <p className="post-description">{currentPost?.description}</p>
           <img src={currentPost?.image} className="post-image" />
         </div>
         <div>
           {user && (
-            <div>
+            <div className="comment-create">
               <OpenModalButton
-                buttonText={"Create Comment"}
+                buttonText={"Post Comment"}
+                className={"create-comment"}
                 modalComponent={<CreateComment />}
               />
             </div>
           )}
-          {user && comments?.length === 0 && (
-  <p className="first-to-reply">Be the first to Reply!</p>
-)}
           {comments &&
             comments.map((comment) => (
               <div key={comment.id} className="comment">
                 <div className="commnamedate">
                   <div>{comment?.user}</div>
-                  {comment.date}
+                  {formatDate(comment.date)}
                 </div>
                 {comment?.description}
-                {user && comment?.userId === user?.id && (
-                  <div>
+                <div className="icons">
+                  <button
+                    className="like"
+                    onClick={() => alert("Feature is under maintenance!")}
+                  >
+                    <i
+                      className="fa-solid fa-heart"
+                      style={{ fontSize: "24px" }}
+                    ></i>
+                  </button>
+                  <button
+                    className="reply"
+                    onClick={() => alert("Feature is under maintenance!")}
+                  >
+                    <i
+                      className="fa-solid fa-comment"
+                      style={{ fontSize: "24px" }}
+                    ></i>
+                  </button>
+                  {user && comment?.userId === user?.id && (
+
                     <OpenModalButton
-                      buttonText={"Delete Comment"}
-                      modalComponent={<DeleteComment commentId={comment.id} />}
-                    />
-                    <OpenModalButton
-                      buttonText={"Edit Comment"}
+                      className={"edit-post"}
+                      buttonText={<i className="fa-solid fa-pencil" style={{ fontSize: "24px", marginRight: "0px" }} title="Edit"></i>}
                       modalComponent={<UpdateComment comment={comment} />}
                     />
-                  </div>
-                )}
-                <button
-                  className="reply"
-                  onClick={() => alert("Feature is under maintenance!")}
-                >
-                  REPLY
-                </button>
-                <button
-                  className="like"
-                  onClick={() => alert("Feature is under maintenance!")}
-                >
-                  LIKE
-                </button>
+                  )}
+                  {user && comment?.userId === user?.id && (
+                    <OpenModalButton
+                      className={"delete-post"}
+                      buttonText={<i className="fa-solid fa-trash" style={{ fontSize: "24px", marginRight: "0px" }} title="Delete"></i>}
+                      modalComponent={<DeleteComment commentId={comment.id} />}
+                    />
+
+                  )}
+                </div>
               </div>
             )).reverse()}
         </div>
+        {user && comments?.length === 0 && (
+          <p className="first-to-reply">Be the first to reply!</p>
+        )}
       </div>
-    </>
+      <div className="right-main">
+        <input
+          className="search-bar"
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onClick={() => alert("Feature is under maintenance!")}
+          placeholder={<i className="fa fa-search" aria-hidden="true" id='search-icon'></i> && "Search Wumblr"}
+        />
+      </div>
+
+    </div>
   );
 };
 

@@ -5,20 +5,51 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../../public/wumblr-high-resolution-logo-white-transparent.png";
 import ad from "../../../public/aalogo.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CreatePost from "../Post/CreatePost";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import { thunkLogout } from "../../redux/session";
+import OpenModalMenuItem from "./OpenModalMenuItem";
+import LoginFormModal from "../LoginFormModal";
+import SignupFormModal from "../SignupFormModal";
 
 function Navigation() {
   const navigate = useNavigate();
-  const [search, setSearch] = useState();
-
+  // const closeMenu = () => setShowMenu(false);
   const user = useSelector((state) => state.session.user);
+  const dispatch = useDispatch()
+
+  const logout = async (e) => {
+    // e.preventDefault()
+
+    await dispatch(thunkLogout())
+
+    navigate("/")
+  }
+
 
   return (
     <div className="nav-bar">
-      <div>
+      <div className="toppage">
         <div className="left-main">
+
+          <img src={logo} className="wumlogo" />
+          <div>
+            {!user && (
+              <>
+                <OpenModalButton
+                  className={'log-in'}
+                  modalComponent={<LoginFormModal />}
+                  buttonText={<><i className="fa-solid fa-right-to-bracket" style={{ fontSize: "16px", marginRight: "4px" }}></i><span className="log-in-button" style={{ fontSize: "15px" }}>Log In</span></>}
+                />
+                <OpenModalButton
+                  className={'signup'}
+                  modalComponent={<SignupFormModal />}
+                  buttonText={<><i className="fa-solid fa-user-plus" style={{ fontSize: "16px", marginRight: "4px" }}></i><span className="signup-button" style={{ fontSize: "15px" }}>Sign Up</span></>}
+                />
+              </>
+            )}
+          </div>
           <div>
             {user && (
               <button className="home-button" onClick={() => navigate("/")}>
@@ -104,9 +135,8 @@ function Navigation() {
           <div>
             {user && (
               <button
-                // NEED TO CHANGE TO MODAL WHEN LOG OUT AND APPLY FUNCTIONALITY
                 className="log-out-button"
-                onClick={() => alert("Feature is under maintenance!")}
+                onClick={() => logout()}
               >
                 <i
                   className="fa-solid fa-door-closed"
@@ -120,40 +150,19 @@ function Navigation() {
           <div>
             {user && (
               <OpenModalButton
-                buttonText={<span style={{ fontSize: "15px" }}>Create</span>}
+                buttonText={<><i className="fa-solid fa-pencil" style={{ fontSize: "16px", marginRight: "4px" }}></i><span className="create-word" style={{ fontSize: "15px" }}>Create</span></>}
                 modalComponent={<CreatePost />}
-                createpost={"create-post"}
+                className={"create-post"}
               />
             )}
             {/* <i className="fa-solid fa-pencil"></i> */}
           </div>
         </div>
       </div>
-      <div className="logo" onClick={() => navigate("/")}>
-        <img src={logo} alt="No Image" className="wumblr-logo" />
-      </div>
-
-      <div className="profile-button">
-        <ProfileButton />
-      </div>
-
-              <div className="right-main">
-              <input
-          className="search-bar"
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onClick={() => alert("Feature is under maintenance!")}
-          placeholder="Search Wumblr"
-        />
-
-        <div className="ad" onClick={() => navigate("/")}>
-          <img src={ad} alt="No Image" />
-        </div>
-              </div>
 
 
-    </div>
+
+    </div >
     // <ul>
     //   <li>
     //     <NavLink to="/">Home</NavLink>

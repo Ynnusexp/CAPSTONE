@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { thunkCreateComment, thunkGetOneComment } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 import { useParams } from "react-router-dom";
-
+import './CreateComment.css'
 const CreateComment = () => {
   const dispatch = useDispatch();
-  const {postId} = useParams();
+  const { postId } = useParams();
   const { closeModal } = useModal();
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
@@ -22,7 +22,7 @@ const CreateComment = () => {
 
       try {
         console.log(postId, " POSTT ID HERE")
-        await dispatch(thunkCreateComment({description: description}, postId));
+        await dispatch(thunkCreateComment({ description: description }, postId));
         await dispatch(thunkGetOneComment());
 
       } catch (error) {
@@ -35,14 +35,14 @@ const CreateComment = () => {
 
   return (
     <>
-      <div className="create-post">
-        <form onSubmit={handleSubmit} className="create-form">
-        {errors && <div> {errors}</div>}
+      <div className="comment-modal">
+        <form onSubmit={handleSubmit} className="create-comment-form">
+          {errors && <div> {errors}</div>}
           <label className="description-label">
             <textarea
               name="description"
               value={description}
-              placeholder="Description"
+              placeholder="Share your thoughts..."
               onChange={(e) => setDescription(e.target.value)}
               maxLength={200}
               className="description-input"
@@ -50,6 +50,7 @@ const CreateComment = () => {
           </label>
           <button
             type="submit"
+            className="post-comment"
             disabled={description.length === 0}
           >
             Post comment

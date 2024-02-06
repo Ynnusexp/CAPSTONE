@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector  } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { thunkUpdateComment, thunkGetOneComment } from "../../redux/comment";
 import { useModal } from "../../context/Modal";
 
-const UpdateComment = ({comment}) => {
+import './UpdateComment.css'
+
+const UpdateComment = ({ comment }) => {
 
   const dispatch = useDispatch();
   const { closeModal } = useModal();
@@ -18,12 +20,12 @@ const UpdateComment = ({comment}) => {
       // formData.append("description", description);
 
       try {
-        await dispatch(thunkUpdateComment({description: description}, comment.id));
+        await dispatch(thunkUpdateComment({ description: description }, comment.id));
         await dispatch(thunkGetOneComment());
 
       } catch (error) {
-          console.error("There was a error updating your comment!", error);
-          setErrors(["There was a error updating your comment!"]);
+        console.error("There was a error updating your comment!", error);
+        setErrors(["There was a error updating your comment!"]);
       }
     }
     closeModal();
@@ -31,8 +33,8 @@ const UpdateComment = ({comment}) => {
 
   return (
     <>
-      <div className="create-comment">
-        <form onSubmit={handleSubmit} className="create-form">
+      <div className="comment-modal">
+        <form onSubmit={handleSubmit} className="update-comment-form">
 
           <label className="description-label">
             <textarea
@@ -44,15 +46,15 @@ const UpdateComment = ({comment}) => {
               className="description-input"
             />
           </label>
+
           <button
             type="submit"
             disabled={description?.length === 0}
+            className="update-comment"
           >
             Update
           </button>
-          <button
-          onClick={closeModal}
-          className="cancel">Cancel</button>
+
         </form>
       </div>
     </>

@@ -95,8 +95,8 @@ export const thunkCreateComment = (commentDetails, postId) => async (dispatch) =
         dispatch(createComment(newComment.Comment));
         return newComment;
     } else {
-        const errors = await response.json()
-        console.log(errors, " ERRORS HERE!!!!")
+        // const errors = await response.json()
+        // console.log(errors, " ERRORS HERE!!!!")
         return { errors: "Could not create comment!" }
     }
 };
@@ -113,7 +113,6 @@ export const thunkUpdateComment = (comment, commentId) => async (dispatch) => {
     if (response.ok) {
         const updatedComment = await response.json();
         dispatch(updateComment(updatedComment.Comment));
-        console.log(updatedComment, "OVVA HERE")
         return updatedComment
     } else {
         return { errors: "Error occured while updating comment!" }

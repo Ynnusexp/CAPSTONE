@@ -1,4 +1,20 @@
 .delete-PostModal {
-    background-color: #021A35
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #001935;
+    border-radius: 10px;
 }
 
+.post-DeleteConfirm {
+    color: white;
+}
+
+.delete-post-buttons {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+}

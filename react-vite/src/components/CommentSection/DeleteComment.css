@@ -1,0 +1,62 @@
+.delete-CommentModal {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #001935;
+    border-radius: 10px;
+}
+
+.delete {
+    background-color: #9C3D33;
+
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    border: none;
+    width: 50px;
+    height: 30px;
+}
+
+.delete:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0);
+}
+
+.delete:enabled {
+    border: none
+}
+
+.cancel {
+    background-color: #00B8FF;
+    /* font-weight: bold; */
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    border: none;
+    width: 50px;
+    height: 30px;
+}
+
+.cancel:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0);
+}
+
+.cancel:enabled {
+    border: none
+}
+
+
+
+.comment-DeleteConfirm {
+    color: white;
+}
+
+.delete-comment-buttons {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+}
