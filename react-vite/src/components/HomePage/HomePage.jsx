@@ -60,16 +60,17 @@ const HomePage = () => {
                 <div className="post-header">
                   <div className="name-follow">
                     <p className="user-name">{post?.user}</p>
-                    {/* <NavLink
+                    <NavLink
                       to={"/"}
                       className="follow"
-                      onClick={() => alert("Feature is under maintenance!")}
+                      // onClick={() => alert("Feature is under maintenance!")}
+                      disabled={true}
                     >
                       Follow
-                    </NavLink> */}
+                    </NavLink>
                   </div>
                 </div>
-                <p className="post-date">{formatDate(post?.date)}</p>
+                <p className="post-date">{formatDate(post?.updated_at)}</p>
                 <h2 className="post-title">{post?.title}</h2>
                 <div className="desc-container">
                   <div className="text-overflow-container">
@@ -116,16 +117,17 @@ const HomePage = () => {
                         />
                       )}
                     </div>
-                    {/* <button
+                    <button
                       className="share"
                       onClick={() => alert("Feature coming soon!")}
+                      disabled={true}
                       title="Share"
                     >
                       <i
                         className="fa-solid fa-share"
                         style={{ fontSize: "24px" }}
                       ></i>
-                    </button> */}
+                    </button>
                     <button
                       className="reply"
                       onClick={() => navigate(`/posts/${post?.id}`)}
@@ -136,8 +138,9 @@ const HomePage = () => {
                         style={{ fontSize: "24px" }}
                       ></i>
                     </button>
-                    {/* <button
+                    <button
                       className="reblog"
+                      disabled={true}
                       onClick={() => alert("Feature coming soon!")}
                       title="Reblog"
                     >
@@ -145,9 +148,10 @@ const HomePage = () => {
                         className="fa-solid fa-retweet"
                         style={{ fontSize: "24px" }}
                       ></i>
-                    </button> */}
-                    {/* <button
+                    </button>
+                    <button
                       className="like"
+                      disabled={true}
                       onClick={() => alert("Feature coming soon!")}
                       title="Like"
                     >
@@ -155,7 +159,7 @@ const HomePage = () => {
                         className="fa-solid fa-heart"
                         style={{ fontSize: "24px" }}
                       ></i>
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -170,7 +174,7 @@ const HomePage = () => {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            // onClick={() => alert("Feature is under maintenance!")}
+            onClick={() => alert("Feature is under maintenance!")}
             placeholder={"Search Wumblr"}
             disabled={true}
           />

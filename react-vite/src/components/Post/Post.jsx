@@ -55,7 +55,7 @@ const Post = () => {
               <p>{currentPost?.user}</p>
             </div>
           </div>
-          <p className="post-date">{formatDate(currentPost?.date)}</p>
+          <p className="post-date">{formatDate(currentPost?.updated_at)}</p>
           <h2 className="post-title">{currentPost?.title}</h2>
           <div className="text-overflow-container">
           <p className="post-description">{currentPost?.description}</p>
@@ -77,14 +77,15 @@ const Post = () => {
               <div key={comment.id} className="comment">
                 <div className="commnamedate">
                   <div>{comment?.user}</div>
-                  {formatDate(comment.date)}
+                  {formatDate(comment.updated_at)}
                 </div>
                 <div className="text-overflow-container">
                 {comment?.description}
                 </div>
                 <div className="icons">
-                  {/* <button
+                  <button
                     className="like"
+                    disabled={true}
                     onClick={() => alert("Feature is under maintenance!")}
                   >
                     <i
@@ -92,9 +93,10 @@ const Post = () => {
                       style={{ fontSize: "24px" }}
                       title="Like"
                     ></i>
-                  </button> */}
-                  {/* <button
+                  </button>
+                  <button
                     className="reply2"
+                    disabled={true}
                     onClick={() => alert("Feature is under maintenance!")}
                   >
                     <i
@@ -102,7 +104,7 @@ const Post = () => {
                       style={{ fontSize: "24px" }}
                       title="Reply"
                     ></i>
-                  </button> */}
+                  </button>
                   {user && comment?.userId === user?.id && (
 
                     <OpenModalButton
@@ -133,7 +135,7 @@ const Post = () => {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          // onClick={() => alert("Feature is under maintenance!")}
+          onClick={() => alert("Feature is under maintenance!")}
           placeholder={<i className="fa fa-search" aria-hidden="true" id='search-icon'></i> && "Search Wumblr"}
           disabled={true}
         />

@@ -91,7 +91,9 @@ def seed_posts(titles, descriptions): ##############
             title=titles[_],
             description=descriptions[_],
             image=image_url,
-            date=datetime.now()
+            # date=datetime.now()
+            created_at=datetime.now(),
+            updated_at=datetime.now()
         )
 
         db.session.add(post)

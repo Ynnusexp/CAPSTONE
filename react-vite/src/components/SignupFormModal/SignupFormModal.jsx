@@ -58,16 +58,16 @@ function SignupFormModal() {
               type="text"
               value={email}
               maxLength={20}
-              placeholder="Email"
+              placeholder={"Email"}
               onChange={(e) => setEmail(e.target.value)}
               required
               className="email-input"
             />
           </div>
-          {errors.email && <span className="errors">{errors.email}</span>}
         </label>
+        {errors.email && <span className="error">{errors.email}</span>}
 
-        {/* {email.length === 20 && <p className=" warning" > Max Length: 20 characters </p>} */}
+        {email.length === 20 && <p className=" warning2" > Max Length: 20 characters </p>}
         <label>
           <div className="inputcont">
             <input
@@ -82,8 +82,8 @@ function SignupFormModal() {
           </div>
         </label>
 
-        {errors.username && <span className="errors">{errors.username}</span>}
-        {/* {username.length === 15 && <p className="warning" > Max Length: 15 characters </p>} */}
+        {errors.username && <span className="error1">{errors.username}</span>}
+        {username.length === 15 && <p className="warning3" > Max Length: 15 characters </p>}
         <label>
           <div className="inputcont">
             <input
@@ -98,7 +98,7 @@ function SignupFormModal() {
           </div>
         </label>
         {errors.password && <span className="errors">{errors.password}</span>}
-        {/* {password.length === 15 && <p className=" warning" > Max Length: 15 characters </p>} */}
+        {password.length === 15 && <p className=" warning" > Max Length: 15 characters </p>}
         <label>
           <div className="inputcont">
             <input
@@ -113,7 +113,7 @@ function SignupFormModal() {
           </div>
         </label>
         {errors.confirmPassword && <span className="errors">Passwords must match</span>}
-        {/* {confirmPassword.length === 15 && <p className="warning" > Max Length: 15 characters </p>} */}
+        {confirmPassword.length === 15 && <p className="warning4" > Max Length: 15 characters </p>}
         <button type="submit" className='signup-button1' disabled={email.length === 0 || username.length === 0 || password.length < 8 || confirmPassword.length < 8}>Sign Up</button>
       </form >
     </div >

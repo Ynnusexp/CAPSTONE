@@ -86,10 +86,11 @@ function Navigation() {
                 </button>
               )}
             </div>
-            {/* <div>
+            <div>
             {user && (
               <button
                 className="explore-button"
+                disabled={true}
                 onClick={() => alert("Feature coming soon!")}
               >
                 <i
@@ -99,11 +100,12 @@ function Navigation() {
                 <span style={{ fontSize: "16px" }}>Explore</span>
               </button>
             )}
-          </div> */}
-            {/* <div>
+          </div>
+            <div>
             {user && (
               <button
                 className="activity-button"
+                disabled={true}
                 onClick={() => alert("Feature coming soon!")}
               >
                 <i
@@ -113,11 +115,12 @@ function Navigation() {
                 <span style={{ fontSize: "16px" }}>Activity</span>
               </button>
             )}
-          </div> */}
-            {/* <div>
+          </div>
+            <div>
             {user && (
               <button
                 className="messages-button"
+                disabled={true}
                 onClick={() => alert("Feature is under maintenance!")}
               >
                 <i
@@ -127,11 +130,12 @@ function Navigation() {
                 <span style={{ fontSize: "16px" }}>Messages</span>
               </button>
             )}
-          </div> */}
-            {/* <div>
+          </div>
+            <div>
             {user && (
               <button
                 className="inbox-button"
+                disabled={true}
                 onClick={() => alert("Feature is under maintenance!")}
               >
                 <i
@@ -141,12 +145,13 @@ function Navigation() {
                 <span style={{ fontSize: "16px" }}>Inbox</span>
               </button>
             )}
-          </div> */}
+          </div>
 
-            {/* <div>
+            <div>
             {user && (
               <button
                 className="account-button"
+                disabled={true}
                 onClick={() => alert("Feature is under maintenance!")}
               >
                 <i
@@ -156,7 +161,7 @@ function Navigation() {
                 <span style={{ fontSize: "16px" }}>Account</span>
               </button>
             )}
-          </div> */}
+          </div>
             <div>
               {user && (
                 <button className="log-out-button" onClick={() => logout()}>

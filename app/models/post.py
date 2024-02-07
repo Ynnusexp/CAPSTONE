@@ -12,7 +12,9 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     title = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String(255), nullable=False)
-    date = db.Column(db.DateTime, default=datetime.now(), nullable=False)
+    # date = db.Column(db.DateTime, default=datetime.now(), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
+    updated_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
     image = db.Column(db.String(255))
 
     user = db.relationship("User", back_populates="posts")
@@ -25,7 +27,9 @@ class Post(db.Model):
             "userId": self.user_id,
             "title": self.title,
             "description": self.description,
-            "date": self.date,
+            # "date": self.date,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
             "image": self.image,
             "comments": [comment.to_dict() for comment in self.comments],
             "user": self.user.username

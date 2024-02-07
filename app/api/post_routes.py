@@ -26,7 +26,7 @@ def user_owns(record):
 @post_routes.route('/all')
 def get_all_posts():
 
-    posts= Post.query.order_by((Post.date.desc())).all()
+    posts= Post.query.order_by((Post.updated_at.desc())).all()
 
     return {post.id: post.to_dict() for post in posts}
 
@@ -127,7 +127,7 @@ def update_posts(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     image_upload = None
-    
+
     if form.validate_on_submit():
         data = form.data
 

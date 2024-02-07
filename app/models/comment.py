@@ -12,7 +12,9 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("posts.id")), nullable=False)
     description = db.Column(db.String(200), nullable=False)
-    date = db.Column(db.DateTime, default=datetime.now(), nullable=False)
+    # date = db.Column(db.DateTime, default=datetime.now(), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
+    updated_at = db.Column(db.DateTime, default=datetime.now(), nullable=False)
 
 
     user = db.relationship("User", back_populates="comments")
@@ -25,6 +27,8 @@ class Comment(db.Model):
             "userId": self.user_id,
             "postId": self.post_id,
             "description": self.description,
-            "date": self.date,
+            # "date": self.date,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
             "user": self.user.username
         }

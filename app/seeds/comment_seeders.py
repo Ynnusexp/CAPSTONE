@@ -54,7 +54,7 @@ def seed_comments(comments):#####################
         comment = Comment(
             user_id=choice(range(1,11)),
             post_id=choice(range(1,20)),
-            description=choice(comments),
+            description=choice(comments)
         )
 
         db.session.add(comment)
