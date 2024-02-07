@@ -26,18 +26,18 @@ const HomePage = () => {
     ];
 
     const dateObj = new Date(inputDate);
-    const dayOfWeek = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
-    const dayOfMonth = dateObj.getDate();
+    const day = dateObj.getDate()
+    const year = dateObj.getFullYear()
     const month = months[dateObj.getMonth()];
 
-    return `${dayOfWeek}, ${dayOfMonth} ${month}`;
+    return `${month} ${day}, ${year}`;
   }
 
-  const searchIcon = () => {
-    return (
-      <i className="fa fa-search" aria-hidden="true" id="search-icon"></i>
-    )
-  }
+  // const searchIcon = () => {
+  //   return (
+  //     <i className="fa fa-search" aria-hidden="true" id="search-icon"></i>
+  //   )
+  // }
 
   useEffect(() => {
     dispatch(thunkGetAllPosts());
@@ -47,11 +47,12 @@ const HomePage = () => {
     <div className="outer">
 
 
-      <div className="home-page">
+      {/* <div className="home-page"> */}
 
         <div className="box-one">
           <Navigation />
         </div>
+
         <div className="all-posts">
           {filteredPosts
             .map((post) => (
@@ -59,18 +60,25 @@ const HomePage = () => {
                 <div className="post-header">
                   <div className="name-follow">
                     <p className="user-name">{post?.user}</p>
-                    <NavLink
+                    {/* <NavLink
                       to={"/"}
                       className="follow"
                       onClick={() => alert("Feature is under maintenance!")}
                     >
                       Follow
-                    </NavLink>
+                    </NavLink> */}
                   </div>
                 </div>
                 <p className="post-date">{formatDate(post?.date)}</p>
                 <h2 className="post-title">{post?.title}</h2>
-                <p className="post-description">{post?.description}</p>
+                <div className="desc-container">
+                  <div className="text-overflow-container">
+
+                  <p className="post-description">{post?.description}</p>
+                  </div>
+
+                  </div>
+
                 <img
                   src={post?.image}
                   className="post-image"
@@ -108,7 +116,7 @@ const HomePage = () => {
                         />
                       )}
                     </div>
-                    <button
+                    {/* <button
                       className="share"
                       onClick={() => alert("Feature coming soon!")}
                       title="Share"
@@ -117,7 +125,7 @@ const HomePage = () => {
                         className="fa-solid fa-share"
                         style={{ fontSize: "24px" }}
                       ></i>
-                    </button>
+                    </button> */}
                     <button
                       className="reply"
                       onClick={() => navigate(`/posts/${post?.id}`)}
@@ -128,7 +136,7 @@ const HomePage = () => {
                         style={{ fontSize: "24px" }}
                       ></i>
                     </button>
-                    <button
+                    {/* <button
                       className="reblog"
                       onClick={() => alert("Feature coming soon!")}
                       title="Reblog"
@@ -137,8 +145,8 @@ const HomePage = () => {
                         className="fa-solid fa-retweet"
                         style={{ fontSize: "24px" }}
                       ></i>
-                    </button>
-                    <button
+                    </button> */}
+                    {/* <button
                       className="like"
                       onClick={() => alert("Feature coming soon!")}
                       title="Like"
@@ -147,28 +155,32 @@ const HomePage = () => {
                         className="fa-solid fa-heart"
                         style={{ fontSize: "24px" }}
                       ></i>
-                    </button>
-
-
+                    </button> */}
                   </div>
-
                 </div>
               </div>
             ))
             .reverse()}
         </div>
+        <div className="right-main-wrapper">
+
         <div className="right-main">
           <input
             className="search-bar"
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            onClick={() => alert("Feature is under maintenance!")}
+            // onClick={() => alert("Feature is under maintenance!")}
             placeholder={"Search Wumblr"}
+            disabled={true}
           />
         </div>
+
+
+        </div>
+
       </div>
-    </div>
+    // </div>
   );
 };
 

@@ -64,6 +64,7 @@ function LoginFormModal() {
           <input
             type="text"
             value={email}
+            maxLength={20}
             onChange={(e) => setEmail(e.target.value)}
             required
             placeholder="Email"
@@ -76,6 +77,7 @@ function LoginFormModal() {
           <input
             type="password"
             value={password}
+            maxLength={15}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             required

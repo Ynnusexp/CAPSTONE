@@ -11,6 +11,18 @@
   margin-bottom: 20px;
 }
 
+.text-overflow-container{
+  width: 100%;
+  /* height: fit-content; */
+  /* background-color: red; */
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  word-break: break-all;
+
+  /* white-space: nowrap; */
+
+}
+
 .commnamedate {
   display: flex;
   justify-content: space-between;
@@ -74,4 +86,15 @@ body {
   width: 200px;
   height: 45px;
   /* font-size: 25px; */
+}
+
+.reply2 {
+  cursor: pointer;
+  width: fit-content;
+  background: none;
+  border: none;
+  padding: 0;
+
+}.reply2:hover {
+  cursor: not-allowed;
 }

@@ -42,7 +42,7 @@ const CreateComment = () => {
             <textarea
               name="description"
               value={description}
-              placeholder="Share your thoughts..."
+              placeholder="Go ahead, put anything"
               onChange={(e) => setDescription(e.target.value)}
               maxLength={200}
               className="description-input"

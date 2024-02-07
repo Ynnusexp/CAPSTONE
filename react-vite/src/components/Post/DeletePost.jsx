@@ -21,8 +21,9 @@ const DeletePost = (postId) => {
                 Are you sure you want to delete this post?
             </h2>
             <div className='delete-post-buttons'>
-                <button onClick={deletePost} className="delete">Delete</button>
                 <button onClick={closeModal} className="cancel">Cancel</button>
+                <button onClick={deletePost} className="delete">Ok</button>
+
             </div>
         </div >
     )

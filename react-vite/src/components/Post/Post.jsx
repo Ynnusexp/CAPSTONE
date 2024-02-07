@@ -33,11 +33,11 @@ const Post = () => {
     ];
 
     const dateObj = new Date(inputDate);
-    const dayOfWeek = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
-    const dayOfMonth = dateObj.getDate();
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
     const month = months[dateObj.getMonth()];
 
-    return `${dayOfWeek}, ${dayOfMonth} ${month}`;
+    return `${month} ${day}, ${year}`;
   }
 
   // if (!currentPost) return null
@@ -57,7 +57,9 @@ const Post = () => {
           </div>
           <p className="post-date">{formatDate(currentPost?.date)}</p>
           <h2 className="post-title">{currentPost?.title}</h2>
+          <div className="text-overflow-container">
           <p className="post-description">{currentPost?.description}</p>
+            </div>
           <img src={currentPost?.image} className="post-image" />
         </div>
         <div>
@@ -77,26 +79,30 @@ const Post = () => {
                   <div>{comment?.user}</div>
                   {formatDate(comment.date)}
                 </div>
+                <div className="text-overflow-container">
                 {comment?.description}
+                </div>
                 <div className="icons">
-                  <button
+                  {/* <button
                     className="like"
                     onClick={() => alert("Feature is under maintenance!")}
                   >
                     <i
                       className="fa-solid fa-heart"
                       style={{ fontSize: "24px" }}
+                      title="Like"
                     ></i>
-                  </button>
-                  <button
-                    className="reply"
+                  </button> */}
+                  {/* <button
+                    className="reply2"
                     onClick={() => alert("Feature is under maintenance!")}
                   >
                     <i
                       className="fa-solid fa-comment"
                       style={{ fontSize: "24px" }}
+                      title="Reply"
                     ></i>
-                  </button>
+                  </button> */}
                   {user && comment?.userId === user?.id && (
 
                     <OpenModalButton
@@ -127,8 +133,9 @@ const Post = () => {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          onClick={() => alert("Feature is under maintenance!")}
+          // onClick={() => alert("Feature is under maintenance!")}
           placeholder={<i className="fa fa-search" aria-hidden="true" id='search-icon'></i> && "Search Wumblr"}
+          disabled={true}
         />
       </div>
 

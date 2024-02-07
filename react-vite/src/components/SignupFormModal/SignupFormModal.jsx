@@ -47,29 +47,34 @@ function SignupFormModal() {
   return (
     <div className="signup-modal">
       <h1 className="login-header">Sign Up</h1>
-      {errors.server && <p>{errors.server}</p>}
+      {errors.server && <span>{errors.server}</span>}
       <form onSubmit={handleSubmit} className='signup-form'>
         <label>
 
 
           <div className="inputcont">
             <input
+
               type="text"
               value={email}
+              maxLength={20}
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
               required
               className="email-input"
             />
           </div>
+          {errors.email && <span className="errors">{errors.email}</span>}
         </label>
-        {errors.email && <p className="errors">{errors.email}</p>}
+
+        {/* {email.length === 20 && <p className=" warning" > Max Length: 20 characters </p>} */}
         <label>
           <div className="inputcont">
             <input
               type="text"
               placeholder="Username"
               value={username}
+              maxLength={15}
               onChange={(e) => setUsername(e.target.value)}
               required
               className="username-input"
@@ -77,12 +82,14 @@ function SignupFormModal() {
           </div>
         </label>
 
-        {errors.username && <p className="error-username">{errors.username}</p>}
+        {errors.username && <span className="errors">{errors.username}</span>}
+        {/* {username.length === 15 && <p className="warning" > Max Length: 15 characters </p>} */}
         <label>
           <div className="inputcont">
             <input
               type="password"
               value={password}
+              maxLength={15}
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -90,21 +97,24 @@ function SignupFormModal() {
             />
           </div>
         </label>
-        {errors.password && <p className="errors2">{errors.password}</p>}
+        {errors.password && <span className="errors">{errors.password}</span>}
+        {/* {password.length === 15 && <p className=" warning" > Max Length: 15 characters </p>} */}
         <label>
           <div className="inputcont">
             <input
               type="password"
               placeholder="Confirm Password"
               value={confirmPassword}
+              maxLength={15}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
               className="confirmPassword-input"
             />
           </div>
         </label>
-        {errors.confirmPassword && <p className="error">Passwords must match</p>}
-        <button type="submit" className='signup-button1' disabled={email.length === 0 || username.length === 0 || password.length === 0 || confirmPassword.length === 0}>Sign Up</button>
+        {errors.confirmPassword && <span className="errors">Passwords must match</span>}
+        {/* {confirmPassword.length === 15 && <p className="warning" > Max Length: 15 characters </p>} */}
+        <button type="submit" className='signup-button1' disabled={email.length === 0 || username.length === 0 || password.length < 8 || confirmPassword.length < 8}>Sign Up</button>
       </form >
     </div >
   );

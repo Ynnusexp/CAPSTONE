@@ -24,10 +24,8 @@ const DeleteComment = (commentId) => {
                 Are you sure you want to delete this comment?
             </h2>
             <div className='delete-comment-buttons'>
-
-                <button onClick={deleteComment} className="delete">Delete</button>
                 <button onClick={closeModal} className="cancel">Cancel</button>
-
+                <button onClick={deleteComment} className="delete">Ok</button>
             </div>
         </div >
     )

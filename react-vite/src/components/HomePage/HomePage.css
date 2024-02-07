@@ -3,11 +3,26 @@
     padding-bottom: 2000px;
 } */
 
+.right-main-wrapper {
+  position: relative;
+  z-index: 60;
+
+}
 .post-title {
   max-width: 500px;
   overflow-wrap: break-word;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.text-overflow-container{
+  width: 100%;
+  /* height: fit-content; */
+  /* background-color: red; */
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+
 }
 
 .each-post {
@@ -41,10 +56,13 @@
 .post-description {
   display: flex;
   width: 500px;
-  overflow-wrap: break-word;
+  /* overflow-wrap: break-word; */
   /* overflow-wrap: break-word;
   word-wrap: break-word;
   white-space: pre-wrap; */
+  /* text-overflow: ellipsis; */
+
+  word-break: break-all;
 }
 
 .follow {
@@ -58,6 +76,9 @@
 
 .follow:hover {
   text-decoration: underline;
+}
+.follow:hover {
+  cursor: not-allowed;
 }
 
 .reply {
@@ -77,6 +98,9 @@
   padding: 0;
 
 }
+.like:hover {
+  cursor: not-allowed;
+}
 
 .reblog {
   cursor: pointer;
@@ -86,13 +110,18 @@
   padding: 0;
 
 }
-
+.reblog:hover {
+  cursor: not-allowed;
+}
 .share {
   cursor: pointer;
   width: fit-content;
   background: none;
   border: none;
   padding: 0;
+}
+.share:hover {
+  cursor: not-allowed;
 }
 
 .delete-post {
@@ -181,6 +210,7 @@
   /* margin-left: 538px; */
   border-right: 1px solid #21374F;
   /* margin-right: 538px; */
+  margin: 0 auto
 }
 
 .post-date {
@@ -200,7 +230,9 @@
 }
 
 .home-page {
-  display: flex;
-  width: 100%;
-  justify-content: center;
+  /* display: flex; */
+  margin: 0 auto;
+  /* width: 100%; */
+  /* justify-content: center; */
+  border: 3px solid red
 }

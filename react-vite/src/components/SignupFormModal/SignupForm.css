@@ -19,29 +19,29 @@
     margin-bottom: 20px;
 }
 
-.errors2 {
+/* .errors2 {
     color: red;
     position: fixed;
     font-size: 14px;
     padding-top: 92px;
-}
+} */
 
-.error {
+/* .error {
     position: absolute;
     color: red;
-    /* position: sticky; */
+
     font-size: 14px;
-    /* padding-top: 134px; */
+    padding-top: 134px;
     display: flex;
     align-items: end;
     margin-top: 145px;
     margin-bottom: 4px;
-    /* height: 148px; */
+
     z-index: 2;
 
-}
+} */
 
-.error-username {
+/* .error-username {
     position: absolute;
     color: red;
     font-size: 14px;
@@ -50,7 +50,7 @@
     margin-top: 64px;
     margin-bottom: 4px;
     z-index: 2;
-}
+} */
 
 .confirmPassword-input {
     width: 225px;
@@ -77,4 +77,8 @@
 
 .signup-button1:enabled {
     border: none
+}
+
+.warning {
+    color: yellow;
 }
