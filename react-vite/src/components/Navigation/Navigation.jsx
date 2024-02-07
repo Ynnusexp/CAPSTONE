@@ -48,7 +48,7 @@ function Navigation() {
                         <span
                           className="log-in-button"
                           style={{ fontSize: "16px" }}
-                    
+
                         >
                           Log In
                         </span>

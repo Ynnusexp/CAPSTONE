@@ -166,7 +166,7 @@ const HomePage = () => {
             ))
             .reverse()}
         </div>
-        <div className="right-main-wrapper">
+      <div className="right-main-wrapper">
 
         <div className="right-main">
           <input
