@@ -86,7 +86,7 @@ const CreatePost = () => {
             disabled={title.length === 0 || description.length === 0}
 
           >
-            Create Post
+            Create Post!
           </button>
         </form>
       </div>

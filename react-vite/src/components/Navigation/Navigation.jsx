@@ -43,11 +43,12 @@ function Navigation() {
                       <>
                         <i
                           className="fa-solid fa-right-to-bracket"
-                          style={{ fontSize: "16px", marginRight: "4px" }}
+                          style={{ fontSize: "16px", marginRight: "8px" }}
                         ></i>
                         <span
                           className="log-in-button"
-                          style={{ fontSize: "15px" }}
+                          style={{ fontSize: "16px" }}
+                    
                         >
                           Log In
                         </span>
@@ -61,11 +62,12 @@ function Navigation() {
                       <>
                         <i
                           className="fa-solid fa-user-plus"
-                          style={{ fontSize: "16px", marginRight: "4px" }}
+                          style={{ fontSize: "16px", marginRight: "8px" }}
                         ></i>
                         <span
                           className="signup-button"
-                          style={{ fontSize: "15px" }}
+                          style={{ fontSize: "16px" }}
+
                         >
                           Sign Up
                         </span>

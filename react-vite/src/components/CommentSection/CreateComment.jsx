@@ -53,7 +53,7 @@ const CreateComment = () => {
             className="post-comment"
             disabled={description.length === 0}
           >
-            Post comment
+            Post Comment!
           </button>
         </form>
       </div>
