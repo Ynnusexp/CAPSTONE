@@ -92,22 +92,22 @@ def run_migrations_online():
         prefix='sqlalchemy.',
         poolclass=pool.NullPool,
     )
-with connectable.connect() as connection:
-        context.configure(
-            connection=connection,
-            target_metadata=get_metadata(),
-            process_revision_directives=process_revision_directives,
-            **current_app.extensions['migrate'].configure_args
-        )
-        # Create a schema (only in production)
-        if environment == "production":
-            connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")
-
-        # Set search path to your schema (only in production)
-        with context.begin_transaction():
+    with connectable.connect() as connection:
+            context.configure(
+                connection=connection,
+                target_metadata=get_metadata(),
+                process_revision_directives=process_revision_directives,
+                **current_app.extensions['migrate'].configure_args
+            )
+            # Create a schema (only in production)
             if environment == "production":
-                context.execute(f"SET search_path TO {SCHEMA}")
-            context.run_migrations()
+                connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")
+
+            # Set search path to your schema (only in production)
+            with context.begin_transaction():
+                if environment == "production":
+                    context.execute(f"SET search_path TO {SCHEMA}")
+                context.run_migrations()
 
 if context.is_offline_mode():
     run_migrations_offline()
