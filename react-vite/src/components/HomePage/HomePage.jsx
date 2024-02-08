@@ -45,8 +45,7 @@ const HomePage = () => {
 
   return (
     <div className="outer">
-
-
+      
       {/* <div className="home-page"> */}
 
         <div className="box-one">

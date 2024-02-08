@@ -35,7 +35,7 @@ function Navigation() {
           <div className="sticky-header">
             <img src={logo} className="wumlogo" onClick={() => navigate("/")} />
             <img src={logoMoble} className="wummoble" onClick={() => navigate("/")} />
-            <div>
+            <div className="">
               {!user && (
                 <>
                   <OpenModalButton
@@ -48,7 +48,7 @@ function Navigation() {
                           style={{ fontSize: "16px", marginRight: "8px" }}
                         ></i>
                         <span
-                          className="log-in-button s-icon"
+                          className="log-in-button"
                           style={{ fontSize: "16px" }}
 
                         >
@@ -67,7 +67,7 @@ function Navigation() {
                           style={{ fontSize: "16px", marginRight: "8px" }}
                         ></i>
                         <span
-                          className="signup-button s-icon"
+                          className="signup-button"
                           style={{ fontSize: "16px" }}
 
                         >
