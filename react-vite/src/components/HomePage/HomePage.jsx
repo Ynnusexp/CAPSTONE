@@ -9,7 +9,7 @@ import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import DeletePost from "../Post/DeletePost";
 import UpdatePost from "../Post/UpdatePost";
 import Navigation from "../Navigation/Navigation";
-
+import Floater from "../Navigation/Floater";
 const HomePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -51,6 +51,9 @@ const HomePage = () => {
 
         <div className="box-one">
           <Navigation />
+        </div>
+        <div className="box-floor">
+          <Floater />
         </div>
 
         <div className="all-posts">

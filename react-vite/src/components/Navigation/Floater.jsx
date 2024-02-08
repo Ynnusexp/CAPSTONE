@@ -4,7 +4,7 @@ import "./Navigation.css";
 import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
 import logo from "../../../public/wumblr-high-resolution-logo-white-transparent.png";
-import logoMoble from  "../../../public/favicon.ico"
+import logoMoble from "../../../public/favicon.ico";
 // import ad from "../../../public/aalogo.png";
 import { useDispatch, useSelector } from "react-redux";
 import CreatePost from "../Post/CreatePost";
@@ -14,7 +14,7 @@ import { thunkLogout } from "../../redux/session";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 
-function Navigation() {
+function Floater() {
   const navigate = useNavigate();
   // const closeMenu = () => setShowMenu(false);
   const user = useSelector((state) => state.session.user);
@@ -29,13 +29,17 @@ function Navigation() {
   };
 
   return (
-    <div className="nav-bar">
-      <div className="toppage">
-        <div className="left-main">
-          <div className="sticky-header">
+    <div className="">
+      <div className="">
+        <div className="">
+          <div className="test">
             <img src={logo} className="wumlogo" onClick={() => navigate("/")} />
-            <img src={logoMoble} className="wummoble" onClick={() => navigate("/")} />
-            <div>
+            <img
+              src={logoMoble}
+              className="wummoble"
+              onClick={() => navigate("/")}
+            />
+            <div className="auth">
               {!user && (
                 <>
                   <OpenModalButton
@@ -50,7 +54,6 @@ function Navigation() {
                         <span
                           className="log-in-button s-icon"
                           style={{ fontSize: "16px" }}
-
                         >
                           Log In
                         </span>
@@ -69,7 +72,6 @@ function Navigation() {
                         <span
                           className="signup-button s-icon"
                           style={{ fontSize: "16px" }}
-
                         >
                           Sign Up
                         </span>
@@ -91,81 +93,81 @@ function Navigation() {
               )}
             </div>
             <div>
-            {user && (
-              <button
-                className="explore-button"
-                disabled={true}
-                onClick={() => alert("Feature coming soon!")}
-              >
-                <i
-                  className="fa-solid fa-map-location-dot"
-                  style={{ fontSize: "16px", marginRight: "8px" }}
-                ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Explore</span>
-              </button>
-            )}
-          </div>
+              {user && (
+                <button
+                  className="explore-button"
+                  disabled={true}
+                  onClick={() => alert("Feature coming soon!")}
+                >
+                  <i
+                    className="fa-solid fa-map-location-dot"
+                    style={{ fontSize: "16px", marginRight: "8px" }}
+                  ></i>{" "}
+                  <span style={{ fontSize: "16px" }}>Explore</span>
+                </button>
+              )}
+            </div>
             <div>
-            {user && (
-              <button
-                className="activity-button"
-                disabled={true}
-                onClick={() => alert("Feature coming soon!")}
-              >
-                <i
-                  className="fa-solid fa-bolt"
-                  style={{ fontSize: "16px", marginRight: "8px" }}
-                ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Activity</span>
-              </button>
-            )}
-          </div>
+              {user && (
+                <button
+                  className="activity-button"
+                  disabled={true}
+                  onClick={() => alert("Feature coming soon!")}
+                >
+                  <i
+                    className="fa-solid fa-bolt"
+                    style={{ fontSize: "16px", marginRight: "8px" }}
+                  ></i>{" "}
+                  <span style={{ fontSize: "16px" }}>Activity</span>
+                </button>
+              )}
+            </div>
             <div>
-            {user && (
-              <button
-                className="messages-button"
-                disabled={true}
-                onClick={() => alert("Feature is under maintenance!")}
-              >
-                <i
-                  className="fa-solid fa-face-smile"
-                  style={{ fontSize: "16px", marginRight: "8px" }}
-                ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Messages</span>
-              </button>
-            )}
-          </div>
+              {user && (
+                <button
+                  className="messages-button"
+                  disabled={true}
+                  onClick={() => alert("Feature is under maintenance!")}
+                >
+                  <i
+                    className="fa-solid fa-face-smile"
+                    style={{ fontSize: "16px", marginRight: "8px" }}
+                  ></i>{" "}
+                  <span style={{ fontSize: "16px" }}>Messages</span>
+                </button>
+              )}
+            </div>
             <div>
-            {user && (
-              <button
-                className="inbox-button"
-                disabled={true}
-                onClick={() => alert("Feature is under maintenance!")}
-              >
-                <i
-                  className="fa-solid fa-envelope"
-                  style={{ fontSize: "16px", marginRight: "8px" }}
-                ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Inbox</span>
-              </button>
-            )}
-          </div>
+              {user && (
+                <button
+                  className="inbox-button"
+                  disabled={true}
+                  onClick={() => alert("Feature is under maintenance!")}
+                >
+                  <i
+                    className="fa-solid fa-envelope"
+                    style={{ fontSize: "16px", marginRight: "8px" }}
+                  ></i>{" "}
+                  <span style={{ fontSize: "16px" }}>Inbox</span>
+                </button>
+              )}
+            </div>
 
             <div>
-            {user && (
-              <button
-                className="account-button"
-                disabled={true}
-                onClick={() => alert("Feature is under maintenance!")}
-              >
-                <i
-                  className="fa-solid fa-user"
-                  style={{ fontSize: "16px", marginRight: "8px" }}
-                ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Account</span>
-              </button>
-            )}
-          </div>
+              {user && (
+                <button
+                  className="account-button"
+                  disabled={true}
+                  onClick={() => alert("Feature is under maintenance!")}
+                >
+                  <i
+                    className="fa-solid fa-user"
+                    style={{ fontSize: "16px", marginRight: "8px" }}
+                  ></i>{" "}
+                  <span style={{ fontSize: "16px" }}>Account</span>
+                </button>
+              )}
+            </div>
             <div>
               {user && (
                 <button className="log-out-button" onClick={() => logout()}>
@@ -177,7 +179,18 @@ function Navigation() {
                 </button>
               )}
             </div>
-
+            <div>
+              {user && (
+                <button className="glass-button">
+                  <i
+                    className="fa fa-search "
+                    aria-hidden="true"
+                    id="search-icon"
+                    disabled={true}
+                  ></i>
+                </button>
+              )}
+            </div>
             <div>
               {user && (
                 <OpenModalButton
@@ -199,7 +212,6 @@ function Navigation() {
                   className={"create-post "}
                 />
               )}
-              {/* <i className="fa-solid fa-pencil"></i> */}
             </div>
           </div>
         </div>
@@ -217,4 +229,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default Floater;

@@ -1,3 +1,4 @@
 import Navigation from './Navigation';
+import Floater from './Floater';
 
-export default Navigation;
+export {Navigation, Floater};

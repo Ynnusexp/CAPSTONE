@@ -10,6 +10,7 @@ import DeleteComment from "../CommentSection/DeleteComment";
 import CreateComment from "../CommentSection/CreateComment";
 import UpdateComment from "../CommentSection/UpdateComment";
 import Navigation from "../Navigation/Navigation";
+import { Floater } from "../Navigation";
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,9 @@ const Post = () => {
       <div className="box-one">
         <Navigation />
       </div>
+      <div className="box-floor">
+          <Floater />
+        </div>
       <div className="all-posts">
         <div key={currentPost.id} className="each-post">
           <div className="post-header">
