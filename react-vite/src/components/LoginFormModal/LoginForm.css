@@ -43,6 +43,26 @@
     font-size: 14px;
     padding-top: 50px;
 }
+.errorsl {
+    color: red;
+    position: fixed;
+    font-size: 14px;
+    padding-top: 50px;
+}
+
+.errors {
+    color: red;
+    position: fixed;
+    font-size: 14px;
+    padding-top: 50px;
+}
+
+.errorsl2 {
+    color: red;
+    position: fixed;
+    font-size: 14px;
+    padding-top: 8px;
+}
 
 
 .login-button {

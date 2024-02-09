@@ -71,7 +71,7 @@ function LoginFormModal() {
             className='email-input'
           />
         </label>
-        {errors.email && <p className='errors'>{errors.email}</p>}
+        {errors.email && <p className='errorsl2'>{errors.email}</p>}
         <label>
           {/* Password */}
           <input
@@ -84,7 +84,7 @@ function LoginFormModal() {
             className='password-input'
           />
         </label>
-        {errors.password && <p className='errors1'>{errors.password}</p>}
+        {errors.password && <p className='errorsl'>{errors.password}</p>}
         <div className='login-buttons-cont'>
 
           <button type="submit" className="login-button" disabled={email.length === 0 || password.length === 0}>Log In</button>

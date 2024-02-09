@@ -99,6 +99,7 @@ function SignupFormModal() {
         </label>
         {errors.password && <span className="errors">{errors.password}</span>}
         {password.length === 15 && <p className=" warning" > Max Length: 15 characters </p>}
+        {password.length < 8 && password.length !== 0 && <p className=" warning" > Min Length: 8 characters </p>}
         <label>
           <div className="inputcont">
             <input

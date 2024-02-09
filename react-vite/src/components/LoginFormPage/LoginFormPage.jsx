@@ -46,7 +46,7 @@ function LoginFormPage() {
             required
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p>{errors.email}</p>}\
         <label>
           Password
           <input
