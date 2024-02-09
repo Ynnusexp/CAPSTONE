@@ -45,10 +45,12 @@ function Navigation() {
                       <>
                         <i
                           className="fa-solid fa-right-to-bracket"
+
                           style={{ fontSize: "16px", marginRight: "8px" }}
                         ></i>
                         <span
                           className="log-in-button"
+                          title="Log In"
                           style={{ fontSize: "16px" }}
 
                         >
@@ -68,6 +70,7 @@ function Navigation() {
                         ></i>
                         <span
                           className="signup-button"
+                          title="Sign Up"
                           style={{ fontSize: "16px" }}
 
                         >
@@ -86,7 +89,11 @@ function Navigation() {
                     className="fa-solid fa-house"
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}> Home </span>
+                  <span
+                  title="Home"
+                  style={{ fontSize: "16px" }}
+
+                   > Home </span>
                 </button>
               )}
             </div>
@@ -99,9 +106,13 @@ function Navigation() {
               >
                 <i
                   className="fa-solid fa-map-location-dot"
+
                   style={{ fontSize: "16px", marginRight: "8px" }}
                 ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Explore</span>
+                <span
+                style={{ fontSize: "16px" }}
+                title="Explore"
+                >Explore</span>
               </button>
             )}
           </div>
@@ -114,9 +125,13 @@ function Navigation() {
               >
                 <i
                   className="fa-solid fa-bolt"
+
                   style={{ fontSize: "16px", marginRight: "8px" }}
+
                 ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Activity</span>
+                <span style={{ fontSize: "16px" }}
+                title="Activity"
+                >Activity</span>
               </button>
             )}
           </div>
@@ -129,9 +144,12 @@ function Navigation() {
               >
                 <i
                   className="fa-solid fa-face-smile"
+
                   style={{ fontSize: "16px", marginRight: "8px" }}
                 ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Messages</span>
+                <span style={{ fontSize: "16px" }}
+                title="Messages"
+                >Messages</span>
               </button>
             )}
           </div>
@@ -144,9 +162,11 @@ function Navigation() {
               >
                 <i
                   className="fa-solid fa-envelope"
+
                   style={{ fontSize: "16px", marginRight: "8px" }}
                 ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Inbox</span>
+                <span style={{ fontSize: "16px" }}
+                title="Inbox">Inbox</span>
               </button>
             )}
           </div>
@@ -160,9 +180,11 @@ function Navigation() {
               >
                 <i
                   className="fa-solid fa-user"
+
                   style={{ fontSize: "16px", marginRight: "8px" }}
                 ></i>{" "}
-                <span style={{ fontSize: "16px" }}>Account</span>
+                <span style={{ fontSize: "16px" }}
+                 title="Account">Account</span>
               </button>
             )}
           </div>
@@ -171,9 +193,11 @@ function Navigation() {
                 <button className="log-out-button" onClick={() => logout()}>
                   <i
                     className="fa-solid fa-door-closed"
+
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}>Log Out</span>
+                  <span style={{ fontSize: "16px" }}
+                   title="Log Out">Log Out</span>
                 </button>
               )}
             </div>
@@ -190,6 +214,7 @@ function Navigation() {
                       <span
                         className="create-word"
                         style={{ fontSize: "15px" }}
+                        title="Create"
                       >
                         Create
                       </span>

@@ -50,10 +50,12 @@ function Floater() {
                         <i
                           className="fa-solid fa-right-to-bracket"
                           style={{ fontSize: "16px", marginRight: "8px" }}
+                          title="Log In"
                         ></i>
                         <span
                           className="log-in-button s-icon"
                           style={{ fontSize: "16px" }}
+
                         >
                           Log In
                         </span>
@@ -68,10 +70,12 @@ function Floater() {
                         <i
                           className="fa-solid fa-user-plus"
                           style={{ fontSize: "16px", marginRight: "8px" }}
+                          title="Sign Up"
                         ></i>
                         <span
                           className="signup-button s-icon"
                           style={{ fontSize: "16px" }}
+
                         >
                           Sign Up
                         </span>
@@ -83,12 +87,13 @@ function Floater() {
             </div>
             <div>
               {user && (
-                <button className="home-button" onClick={() => navigate("/")}>
+                <button className="home-button" title="Home" onClick={() => navigate("/")}>
                   <i
                     className="fa-solid fa-house"
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}> Home </span>
+                  <span style={{ fontSize: "16px" }}
+                  > Home </span>
                 </button>
               )}
             </div>
@@ -98,12 +103,15 @@ function Floater() {
                   className="explore-button"
                   disabled={true}
                   onClick={() => alert("Feature coming soon!")}
+                  title="Explore"
                 >
                   <i
                     className="fa-solid fa-map-location-dot"
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}>Explore</span>
+                  <span style={{ fontSize: "16px" }}
+
+                  >Explore</span>
                 </button>
               )}
             </div>
@@ -113,12 +121,15 @@ function Floater() {
                   className="activity-button"
                   disabled={true}
                   onClick={() => alert("Feature coming soon!")}
+                  title="Activity"
                 >
                   <i
                     className="fa-solid fa-bolt"
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}>Activity</span>
+                  <span style={{ fontSize: "16px" }}
+
+                  >Activity</span>
                 </button>
               )}
             </div>
@@ -128,12 +139,15 @@ function Floater() {
                   className="messages-button"
                   disabled={true}
                   onClick={() => alert("Feature is under maintenance!")}
+                  title="Messages"
                 >
                   <i
                     className="fa-solid fa-face-smile"
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}>Messages</span>
+                  <span style={{ fontSize: "16px" }}
+
+                  >Messages</span>
                 </button>
               )}
             </div>
@@ -143,12 +157,15 @@ function Floater() {
                   className="inbox-button"
                   disabled={true}
                   onClick={() => alert("Feature is under maintenance!")}
+                  title="Inbox"
                 >
                   <i
                     className="fa-solid fa-envelope"
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}>Inbox</span>
+                  <span style={{ fontSize: "16px" }}
+
+                  >Inbox</span>
                 </button>
               )}
             </div>
@@ -159,23 +176,30 @@ function Floater() {
                   className="account-button"
                   disabled={true}
                   onClick={() => alert("Feature is under maintenance!")}
+                  title="Account"
                 >
                   <i
                     className="fa-solid fa-user"
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}>Account</span>
+                  <span style={{ fontSize: "16px" }}
+                  >Account</span>
+
                 </button>
               )}
             </div>
             <div>
               {user && (
-                <button className="log-out-button" onClick={() => logout()}>
+                <button className="log-out-button" onClick={() => logout()}
+                title="Log Out">
+
                   <i
                     className="fa-solid fa-door-closed"
                     style={{ fontSize: "16px", marginRight: "8px" }}
                   ></i>{" "}
-                  <span style={{ fontSize: "16px" }}>Log Out</span>
+                  <span style={{ fontSize: "16px" }}
+
+                  >Log Out</span>
                 </button>
               )}
             </div>
@@ -184,6 +208,7 @@ function Floater() {
                 <button className="glass-button">
                   <i
                     className="fa fa-search "
+                    // title="Search"
                     aria-hidden="true"
                     id="search-icon"
                     disabled={true}
@@ -199,9 +224,11 @@ function Floater() {
                       <i
                         className="fa-solid fa-pencil"
                         style={{ fontSize: "16px", marginRight: "4px" }}
+                        title="Create"
                       ></i>
                       <span
                         className="create-word"
+
                         style={{ fontSize: "15px" }}
                       >
                         Create
