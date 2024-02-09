@@ -207,7 +207,7 @@
   border-right: 1px solid #21374F;
   /* margin-right: 538px; */
   margin: 0 auto;
-  top: -433px
+  top: 0;
 }
 .right-main-wrapper {
   position: static;

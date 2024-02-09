@@ -138,7 +138,7 @@ padding: 10px;
 }
 
 .left-main {
-  position: static;
+  position: fixed;
   top: 0;
   padding: 10px;
 
@@ -434,6 +434,6 @@ padding: 10px;
     width: fit-content;
   }
   .all-posts{
-    top: 0
+    top:0;
   }
 }
