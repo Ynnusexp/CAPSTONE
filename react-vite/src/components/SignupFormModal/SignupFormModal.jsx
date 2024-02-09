@@ -113,7 +113,7 @@ function SignupFormModal() {
             />
           </div>
         </label>
-        {errors.confirmPassword && <span className="errors">Passwords must match</span>}
+        {errors.confirmPassword && <span className="errormatch">Passwords must match</span>}
         {confirmPassword.length === 15 && <p className="warning4" > Max Length: 15 characters </p>}
         <button type="submit" className='signup-button1' disabled={email.length === 0 || username.length === 0 || password.length < 8 || confirmPassword.length < 8}>Sign Up</button>
       </form >
