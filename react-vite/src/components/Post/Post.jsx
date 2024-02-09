@@ -19,10 +19,12 @@ const Post = () => {
   const currentPost = useSelector((state) => state.posts);
   const comments = useSelector((state) => Object.values(state.comments));
   const user = useSelector((state) => state.session.user);
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchData = async () => {
       await dispatch(thunkGetOnePost(postId));
       await dispatch(thunkGetOneComment(postId));
+      setLoading(false);
     };
 
     fetchData();
@@ -45,6 +47,12 @@ const Post = () => {
   // if (!comments) return null
 
   return (
+    <>
+    {loading? (
+      <div className="flicker">
+        <h1 className="loading"> LOADING ... PLEASE WAIT </h1>
+      </div>
+    ) : (
     <div className="home-page">
       <div className="box-one">
         <Navigation />
@@ -146,6 +154,8 @@ const Post = () => {
       </div>
 
     </div>
+    )}
+    </>
   );
 };
 

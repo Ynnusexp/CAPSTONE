@@ -22,7 +22,16 @@
   /* white-space: nowrap; */
 
 }
-
+.flicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.loading {
+  color: white;
+  font-size: 72px;
+}
 .commnamedate {
   display: flex;
   justify-content: space-between;
