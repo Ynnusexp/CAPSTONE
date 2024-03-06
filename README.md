@@ -22,6 +22,8 @@ Welcome to Wumblr! My full stack project is a simpler version of the well known 
   <img width="50px" height="50px" src="https://github.com/Ynnusexp/Ynnusexp/assets/133691947/e79c6e39-c870-4831-b385-1ba8c9de4008"/>
 </p>
 
+## Preview:
 
+<img src="wumblrpic.png" />
 
 
