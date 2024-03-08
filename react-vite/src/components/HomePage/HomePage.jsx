@@ -223,7 +223,7 @@ const HomePage = () => {
               ) : (
                 <ul className="search-list">
                   {loading ? (
-                    <div className="search-message" >Loading... please wait</div> //
+                    <div className="search-message" >Loading... please wait</div> 
                   ) : (
                     searchResults.map((result) => (
                       <NavLink
