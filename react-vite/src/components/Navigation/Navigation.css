@@ -412,6 +412,15 @@ padding: 10px;
   .search-bar {
     display: none;
   }
+  .search-list {
+    display: none;
+  }
+  .search-container {
+    display: none;
+  }
+  .search-results {
+    display: none;
+  }
   .sticky-header span {
     display: none;
     width: fit-content;
