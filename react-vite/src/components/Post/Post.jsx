@@ -141,7 +141,7 @@ const Post = () => {
           <p className="first-to-reply">Be the first to reply!</p>
         )}
       </div>
-      <div className="right-main">
+      {/* <div className="right-main">
         <input
           className="search-bar"
           type="text"
@@ -151,7 +151,7 @@ const Post = () => {
           placeholder={<i className="fa fa-search" aria-hidden="true" id='search-icon'></i> && "Search Wumblr"}
           disabled={true}
         />
-      </div>
+      </div> */}
 
     </div>
     )}

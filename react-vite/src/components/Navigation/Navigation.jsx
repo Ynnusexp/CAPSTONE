@@ -1,4 +1,4 @@
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { useNavigate } from "react-router-dom";
@@ -188,6 +188,24 @@ function Navigation() {
               </button>
             )}
           </div>
+          <div>
+              {
+                 <div className="dev">
+                 <div>
+                   <i
+                   className="fa-brands fa-github"
+                   style={{ fontSize: "16px", marginRight: "8px", color: "white" }}></i>
+                   <NavLink
+                     to="https://github.com/Ynnusexp"
+                     style={{ fontSize: "16px", marginRight: "8px", color: "white", textDecoration:"none" }}
+                   >
+                     Light Vo
+                   </NavLink>
+                 </div>
+               </div>
+              }
+            </div>
+
             <div>
               {user && (
                 <button className="log-out-button" onClick={() => logout()}>
@@ -229,6 +247,7 @@ function Navigation() {
           </div>
         </div>
       </div>
+
     </div>
     // <ul>
     //   <li>
@@ -239,6 +258,7 @@ function Navigation() {
     //     <ProfileButton />
     //   </li>
     // </ul>
+
   );
 }
 

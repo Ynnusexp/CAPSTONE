@@ -103,9 +103,9 @@
   color: #BCC3CA;
 }
 
-.search-bar:hover {
+/* .search-bar:hover {
   cursor: not-allowed;
-}
+} */
 
 .nav-bar {
   /* position: sticky; */
@@ -350,6 +350,24 @@ padding: 10px;
 }
 
 .log-out-button:hover {
+  background-color: #122943;
+}
+
+.dev {
+  cursor: pointer;
+  background-color: #36465d;
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  display: flex;
+}
+
+.dev:hover {
   background-color: #122943;
 }
 .box-floor {

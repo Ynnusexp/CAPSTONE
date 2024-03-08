@@ -238,3 +238,43 @@
   /* justify-content: center; */
   /* border: 3px solid red */
 }
+
+.search-container {
+  position: absolute;
+  margin-top: 45px;
+  width: 190px;
+  max-height: 400px;
+  color: white;
+  background-color: #405368;
+  border-radius: 4px;
+  overflow-y: auto;
+  border: 1px solid white;
+
+}
+
+.search-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 190;
+  max-height: fit-content;
+  color: white;
+
+}
+
+.search-results {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  text-decoration: none;
+  color: white;
+}
+.search-results:hover {
+  background-color: #122943;
+}
+ .search-message {
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+ }
