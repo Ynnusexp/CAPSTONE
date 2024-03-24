@@ -242,23 +242,12 @@ function Navigation() {
                   className={"create-post "}
                 />
               )}
-              {/* <i className="fa-solid fa-pencil"></i> */}
             </div>
           </div>
         </div>
       </div>
 
     </div>
-    // <ul>
-    //   <li>
-    //     <NavLink to="/">Home</NavLink>
-    //   </li>
-
-    //   <li>
-    //     <ProfileButton />
-    //   </li>
-    // </ul>
-
   );
 }
 

@@ -208,7 +208,6 @@ function Floater() {
                 <button className="glass-button">
                   <i
                     className="fa fa-search "
-                    // title="Search"
                     aria-hidden="true"
                     id="search-icon"
                     disabled={true}
@@ -244,15 +243,6 @@ function Floater() {
         </div>
       </div>
     </div>
-    // <ul>
-    //   <li>
-    //     <NavLink to="/">Home</NavLink>
-    //   </li>
-
-    //   <li>
-    //     <ProfileButton />
-    //   </li>
-    // </ul>
   );
 }
 
