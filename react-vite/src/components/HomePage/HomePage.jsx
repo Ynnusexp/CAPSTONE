@@ -20,7 +20,6 @@ const HomePage = () => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  //   console.log("POST HERE!!!!!!!!!!!!!!", allPosts)
 
   const filteredPosts = Object.values(allPosts);
 
@@ -75,7 +74,6 @@ const HomePage = () => {
 
   return (
     <div className="outer">
-      {/* <div className="home-page"> */}
 
       <div className="box-one">
         <Navigation />
@@ -94,7 +92,7 @@ const HomePage = () => {
                   <NavLink
                     to={"/"}
                     className="follow"
-                    // onClick={() => alert("Feature is under maintenance!")}
+                    
                     disabled={true}
                   >
                     Follow
@@ -223,7 +221,7 @@ const HomePage = () => {
               ) : (
                 <ul className="search-list">
                   {loading ? (
-                    <div className="search-message" >Loading... please wait</div> 
+                    <div className="search-message" >Loading... please wait</div>
                   ) : (
                     searchResults.map((result) => (
                       <NavLink
