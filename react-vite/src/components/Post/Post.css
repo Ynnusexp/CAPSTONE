@@ -13,14 +13,8 @@
 
 .text-overflow-container{
   width: 100%;
-  /* height: fit-content; */
-  /* background-color: red; */
   overflow: hidden;
-  /* text-overflow: ellipsis; */
   word-break: break-all;
-
-  /* white-space: nowrap; */
-
 }
 .flicker {
   display: flex;
@@ -60,7 +54,6 @@
 
 .top-post-page {
   display: flex;
-  /* flex-direction: column; */
 }
 
 .post-header {
@@ -94,7 +87,6 @@ body {
   font-weight: bold;
   width: 200px;
   height: 45px;
-  /* font-size: 25px; */
 }
 
 .reply2 {
@@ -107,10 +99,3 @@ body {
 }.reply2:hover {
   cursor: not-allowed;
 }
-
-
-
-
-
-
-

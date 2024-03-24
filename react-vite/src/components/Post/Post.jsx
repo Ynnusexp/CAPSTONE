@@ -43,8 +43,7 @@ const Post = () => {
     return `${month} ${day}, ${year}`;
   }
 
-  // if (!currentPost) return null
-  // if (!comments) return null
+  
 
   return (
     <>
