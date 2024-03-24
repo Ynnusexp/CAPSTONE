@@ -21,7 +21,7 @@ const CreateComment = () => {
       // formData.append("description", description);
 
       try {
-        console.log(postId, " POSTT ID HERE")
+      
         await dispatch(thunkCreateComment({ description: description }, postId));
         await dispatch(thunkGetOneComment());
 

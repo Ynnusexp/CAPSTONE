@@ -91,12 +91,11 @@ export const thunkCreateComment = (commentDetails, postId) => async (dispatch) =
 
     if (response.ok) {
         const newComment = await response.json();
-        console.log("LOOK HERE!!!", newComment)
+
         dispatch(createComment(newComment.Comment));
         return newComment;
     } else {
-        // const errors = await response.json()
-        // console.log(errors, " ERRORS HERE!!!!")
+       
         return { errors: "Could not create comment!" }
     }
 };
